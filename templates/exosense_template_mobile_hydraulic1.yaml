@@ -1,0 +1,1137 @@
+# ExoSense Template Flavor YAML
+# Mobile Hydraulic Template
+version: 0.1
+
+groups:
+  - name: Admin Template
+    description: Internal group for Templates
+    devices:
+      - simTruck1
+
+  - name: Sandbox / Testing
+    description: Internal group for Testing
+    devices:
+      - simTruck2
+
+  - name: Pilot Customer
+    description: The first customer
+    devices:
+         - simTruck3
+    children:
+      - name: Site 1
+        description: Customer's 1st location
+      - name: Site 2
+        description: Customers 2nd location
+
+# Roles to be applied to the instance
+roles:
+  - name: Driver
+    permissions:
+      - View Asset
+      - View Asset Data
+
+  - name: Installer Admin
+    permissions:
+      - Api Tokens
+      - Asset Management
+      - Asset/Device Control
+      - Dashboard Management
+      - Device Management
+      - File Management
+      - Group Management
+      - Setup - Documents
+      - Setup - Roles
+      - Setup - Theme
+      - User Management
+      - View Asset
+      - View Asset Data
+      - View Unpublished Files
+
+  - name: Site Manager
+    permissions:
+      - Asset Management
+      - Dashboard Management
+      - Device Management
+      - File Management
+      - Group Management
+      - User Management
+      - View Asset
+      - View Asset Data
+      - View Unpublished Files
+
+devices:
+  - identity: simTruck1
+    profile: hydraulic
+  - identity: simTruck2
+    profile: hydraulic
+  - identity: simTruck3
+    profile: hydraulic
+  - identity: simTruck4
+    simulate: false
+    profile: hydraulic
+
+assets:
+  - name: Truck Template
+    identity: simTruck1
+    createTemplate: true
+  - name: Truck 2
+    identity: simTruck2
+  - name: Truck 3
+    identity: simTruck3
+    
+containers:
+  - profile: hydraulic
+    dashboards:
+      - name: Realtime
+        order: 0
+        panels:
+          - type: map
+            configuration:
+              icon: ''
+              title: Map
+              assets:
+                - 08c4196e-3eae-417f-8019-00edc9b173c9
+              autoZoom: true
+              tileLayer: '0'
+              manualZoom: 16
+              showStatus: true
+              showTrails: true
+              defaultView: ''
+              manualCenter: []
+              trailOptions: 1570645840403
+              groupClusters: false
+              showGeoFences: true
+              allowViewSwitching: false
+            position:
+              h: 20
+              i: '6'
+              w: 7
+              x: 0
+              'y': 6
+            channels: []
+            rules: []
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+              title: Fuel Level
+              showTicks: true
+              gaugeSignals:
+                - units: GALLON
+                  limits:
+                    max: 80
+                    min: 0
+                    auto: false
+                  signalId: fuel_level
+                  showThresholds: true
+                  hideValueDuringTimeout: false
+            position:
+              h: 6
+              i: '1'
+              w: 3
+              x: 0
+              'y': 0
+            channels:
+              - fuel_level
+            rules:
+              - fuel_level
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+                majorIntervalCustom: false
+                minorIntervalCustom: null
+              title: Speed
+              showTicks: true
+              gaugeSignals:
+                - units: MPH
+                  limits:
+                    max: 80
+                    min: 0
+                    auto: false
+                  signalId: maxspeed
+                  showThresholds: false
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: '3'
+              w: 3
+              x: 3
+              'y': 0
+            channels:
+              - maxspeed
+            rules: []
+          - type: linechart
+            configuration:
+              title: Hydraulic Fluid Temperature
+              units: DEG_FAHRENHEIT
+              yAxis:
+                max: 140
+                min: 0
+                auto: false
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 1000
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: null
+                value: null
+                enabled: null
+                liveMode: true
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: false
+                - unit: d
+                  value: 30
+                  enabled: false
+              showThresholds: true
+              hideValueDuringTimeout: null
+            position:
+              h: 9
+              i: '3'
+              w: 5
+              x: 7
+              'y': 6
+            channels:
+              - hyd_temp
+            rules:
+              - hyd_temp
+          - type: currentvalue
+            configuration:
+              title: Engine On/Off
+              textSize: 45
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              showThresholds: false
+              hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: '1'
+              w: 3
+              x: 9
+              'y': 0
+            channels:
+              - eng_status
+            rules: []
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+              title: Hydraulic Fluid Temperature
+              showTicks: true
+              gaugeSignals:
+                - units: DEG_FAHRENHEIT
+                  limits:
+                    max: 150
+                    min: 0
+                    auto: false
+                  signalId: hyd_temp
+                  showThresholds: true
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: '0'
+              w: 3
+              x: 6
+              'y': 0
+            channels:
+              - hyd_temp
+            rules:
+              - hyd_temp
+          - type: log
+            configuration:
+              title: Event Log
+            position:
+              h: 11
+              i: '0'
+              w: 5
+              x: 7
+              'y': 15
+            channels: []
+            rules: []
+      - name: Historical
+        order: 0
+        panels:
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 100
+                    min: 0
+                    auto: true
+                  type: SPEED
+                  unit: MPH
+              title: Max Speed Historical
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              baselines: []
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 1
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: true
+              dataGapMultiplier: null
+            position:
+              h: 9
+              i: '1'
+              w: 12
+              x: 0
+              'y': 0
+            channels:
+              - maxspeed
+            rules: []
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 100
+                    min: 0
+                    auto: true
+                  type: VOLUME
+                  unit: GALLON
+              title: Fuel Level - Historical
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              baselines: []
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 1
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: true
+              dataGapMultiplier: null
+            position:
+              h: 7
+              i: '1'
+              w: 12
+              x: 0
+              'y': 19
+            channels:
+              - fuel_level
+            rules:
+              - fuel_level
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 100
+                    min: 0
+                    auto: true
+                  type: TEMPERATURE
+                  unit: DEG_FAHRENHEIT
+              title: Hydraulic Fluid Temperature
+              liveMode:
+                unit: h
+                value: 1
+                maxDatapoints: 1000
+              baselines: []
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 1
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: true
+              dataGapMultiplier: null
+            position:
+              h: 10
+              i: '0'
+              w: 12
+              x: 0
+              'y': 9
+            channels:
+              - hyd_temp
+            rules:
+              - hyd_temp
+
+profiles:
+  hydraulic:
+    type: "csv"
+    data: 
+      location: 
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18114}"
+        - "{\"lat\":43.67422,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18114}"
+        - "{\"lat\":43.67422,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67423,\"lng\":-96.18114}"
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67422,\"lng\":-96.18114}"
+        - "{\"lat\":43.67423,\"lng\":-96.18115}"
+        - "{\"lat\":43.67424,\"lng\":-96.18215}"
+        - "{\"lat\":43.67425,\"lng\":-96.1916}"
+        - "{\"lat\":43.67426,\"lng\":-96.19185}"
+        - "{\"lat\":43.67426,\"lng\":-96.20258}"
+        - "{\"lat\":43.67287,\"lng\":-96.20261}"
+        - "{\"lat\":43.67152,\"lng\":-96.20261}"
+        - "{\"lat\":43.66679,\"lng\":-96.20269}"
+        - "{\"lat\":43.66297,\"lng\":-96.20273}"
+        - "{\"lat\":43.66112,\"lng\":-96.20278}"
+        - "{\"lat\":43.65983,\"lng\":-96.20279}"
+        - "{\"lat\":43.65814,\"lng\":-96.20286}"
+        - "{\"lat\":43.65714,\"lng\":-96.20288}"
+        - "{\"lat\":43.65617,\"lng\":-96.20293}"
+        - "{\"lat\":43.65514,\"lng\":-96.20294}"
+        - "{\"lat\":43.65413,\"lng\":-96.20299}"
+        - "{\"lat\":43.65412,\"lng\":-96.20182}"
+        - "{\"lat\":43.65408,\"lng\":-96.20009}"
+        - "{\"lat\":43.65404,\"lng\":-96.19931}"
+        - "{\"lat\":43.65394,\"lng\":-96.19864}"
+        - "{\"lat\":43.65341,\"lng\":-96.19576}"
+        - "{\"lat\":43.65281,\"lng\":-96.1926}"
+        - "{\"lat\":43.65263,\"lng\":-96.1915}"
+        - "{\"lat\":43.65257,\"lng\":-96.19066}"
+        - "{\"lat\":43.65262,\"lng\":-96.17964}"
+        - "{\"lat\":43.65263,\"lng\":-96.17935}"
+        - "{\"lat\":43.65265,\"lng\":-96.17349}"
+        - "{\"lat\":43.65262,\"lng\":-96.17299}"
+        - "{\"lat\":43.65255,\"lng\":-96.1724}"
+        - "{\"lat\":43.6525,\"lng\":-96.1721}"
+        - "{\"lat\":43.65236,\"lng\":-96.17146}"
+        - "{\"lat\":43.65219,\"lng\":-96.17087}"
+        - "{\"lat\":43.65185,\"lng\":-96.17}"
+        - "{\"lat\":43.65003,\"lng\":-96.16606}"
+        - "{\"lat\":43.6498,\"lng\":-96.16544}"
+        - "{\"lat\":43.64966,\"lng\":-96.16489}"
+        - "{\"lat\":43.64952,\"lng\":-96.16426}"
+        - "{\"lat\":43.64941,\"lng\":-96.16338}"
+        - "{\"lat\":43.64901,\"lng\":-96.15337}"
+        - "{\"lat\":43.64849,\"lng\":-96.13987}"
+        - "{\"lat\":43.64847,\"lng\":-96.13826}"
+        - "{\"lat\":43.64846,\"lng\":-96.13462}"
+        - "{\"lat\":43.64843,\"lng\":-96.13383}"
+        - "{\"lat\":43.64837,\"lng\":-96.13327}"
+        - "{\"lat\":43.64783,\"lng\":-96.13331}"
+        - "{\"lat\":43.64528,\"lng\":-96.13337}"
+        - "{\"lat\":43.63778,\"lng\":-96.13333}"
+        - "{\"lat\":43.63262,\"lng\":-96.13333}"
+        - "{\"lat\":43.63072,\"lng\":-96.13331}"
+        - "{\"lat\":43.63074,\"lng\":-96.13604}"
+        - "{\"lat\":43.63047,\"lng\":-96.13603}"
+        - "{\"lat\":43.63074,\"lng\":-96.13604}"
+        - "{\"lat\":43.63074,\"lng\":-96.13987}"
+        - "{\"lat\":43.63077,\"lng\":-96.1446}"
+        - "{\"lat\":43.63076,\"lng\":-96.15338}"
+        - "{\"lat\":43.63073,\"lng\":-96.15794}"
+        - "{\"lat\":43.63069,\"lng\":-96.1731}"
+        - "{\"lat\":43.62796,\"lng\":-96.17308}"
+        - "{\"lat\":43.61615,\"lng\":-96.17306}"
+        - "{\"lat\":43.61615,\"lng\":-96.1793}"
+        - "{\"lat\":43.61617,\"lng\":-96.18109}"
+        - "{\"lat\":43.61621,\"lng\":-96.19106}"
+        - "{\"lat\":43.61624,\"lng\":-96.19302}"
+        - "{\"lat\":43.61623,\"lng\":-96.19518}"
+        - "{\"lat\":43.61626,\"lng\":-96.19667}"
+        - "{\"lat\":43.61636,\"lng\":-96.20796}"
+        - "{\"lat\":43.61636,\"lng\":-96.20895}"
+        - "{\"lat\":43.61641,\"lng\":-96.21299}"
+        - "{\"lat\":43.62236,\"lng\":-96.21303}"
+        - "{\"lat\":43.62251,\"lng\":-96.21302}"
+        - "{\"lat\":43.63447,\"lng\":-96.2131}"
+        - "{\"lat\":43.63457,\"lng\":-96.21308}"
+        - "{\"lat\":43.63664,\"lng\":-96.2131}"
+        - "{\"lat\":43.63964,\"lng\":-96.21306}"
+        - "{\"lat\":43.63977,\"lng\":-96.21307}"
+        - "{\"lat\":43.64152,\"lng\":-96.21304}"
+        - "{\"lat\":43.64152,\"lng\":-96.21355}"
+        - "{\"lat\":43.641324,\"lng\":-96.213576}"
+        - "{\"lat\":43.641324,\"lng\":-96.213576}"
+        - "{\"lat\":43.641324,\"lng\":-96.213576}"
+        - "{\"lat\":43.641324,\"lng\":-96.213576}"
+        - "{\"lat\":43.641324,\"lng\":-96.213576}"
+        - "{\"lat\":43.64152,\"lng\":-96.21304}"
+        - "{\"lat\":43.64281,\"lng\":-96.21311}"
+        - "{\"lat\":43.64298,\"lng\":-96.21316}"
+        - "{\"lat\":43.64552,\"lng\":-96.21319}"
+        - "{\"lat\":43.64886,\"lng\":-96.21304}"
+        - "{\"lat\":43.65181,\"lng\":-96.21296}"
+        - "{\"lat\":43.65433,\"lng\":-96.21287}"
+        - "{\"lat\":43.66008,\"lng\":-96.21272}"
+        - "{\"lat\":43.66056,\"lng\":-96.21272}"
+        - "{\"lat\":43.66197,\"lng\":-96.21268}"
+        - "{\"lat\":43.6647,\"lng\":-96.21265}"
+        - "{\"lat\":43.66691,\"lng\":-96.21258}"
+        - "{\"lat\":43.66752,\"lng\":-96.21259}"
+        - "{\"lat\":43.67014,\"lng\":-96.21256}"
+        - "{\"lat\":43.67022,\"lng\":-96.21252}"
+        - "{\"lat\":43.67109,\"lng\":-96.21249}"
+        - "{\"lat\":43.67391,\"lng\":-96.21248}"
+        - "{\"lat\":43.6743,\"lng\":-96.2125}"
+        - "{\"lat\":43.67428,\"lng\":-96.20934}"
+        - "{\"lat\":43.67426,\"lng\":-96.20258}"
+        - "{\"lat\":43.67426,\"lng\":-96.19185}"
+        - "{\"lat\":43.67425,\"lng\":-96.1916}"
+        - "{\"lat\":43.67424,\"lng\":-96.1816}"
+        - "{\"lat\":43.67424,\"lng\":-96.1816}"
+      eng_status: 
+        - "false"
+        - "false"
+        - "false"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "false"
+        - "false"
+        - "false"
+        - "false"
+        - "false"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+        - "true"
+      fuel_level: 
+        - "12.0"
+        - "12.0"
+        - "12.0"
+        - "12.0"
+        - "12.0"
+        - "11.9"
+        - "11.8"
+        - "11.6"
+        - "11.5"
+        - "11.3"
+        - "11.1"
+        - "11.0"
+        - "10.9"
+        - "10.9"
+        - "10.9"
+        - "10.8"
+        - "10.8"
+        - "10.8"
+        - "10.7"
+        - "10.7"
+        - "10.7"
+        - "10.6"
+        - "10.6"
+        - "10.6"
+        - "10.5"
+        - "10.5"
+        - "10.5"
+        - "10.5"
+        - "10.4"
+        - "10.4"
+        - "10.4"
+        - "10.3"
+        - "10.3"
+        - "10.3"
+        - "10.2"
+        - "10.2"
+        - "10.2"
+        - "10.1"
+        - "10.1"
+        - "10.1"
+        - "10.1"
+        - "10.0"
+        - "10.0"
+        - "10.0"
+        - "9.9"
+        - "9.9"
+        - "9.9"
+        - "9.8"
+        - "9.8"
+        - "9.8"
+        - "9.8"
+        - "9.7"
+        - "9.7"
+        - "9.7"
+        - "9.6"
+        - "9.6"
+        - "9.6"
+        - "9.5"
+        - "9.5"
+        - "9.5"
+        - "9.5"
+        - "9.4"
+        - "9.4"
+        - "9.4"
+        - "9.4"
+        - "9.3"
+        - "9.3"
+        - "9.3"
+        - "9.2"
+        - "9.2"
+        - "9.2"
+        - "9.2"
+        - "9.1"
+        - "9.1"
+        - "9.1"
+        - "9.0"
+        - "9.0"
+        - "9.0"
+        - "9.0"
+        - "8.9"
+        - "8.9"
+        - "8.9"
+        - "8.9"
+        - "8.8"
+        - "8.8"
+        - "8.8"
+        - "8.8"
+        - "8.8"
+        - "8.8"
+        - "8.8"
+        - "79.5"
+        - "79.5"
+        - "79.5"
+        - "79.3"
+        - "79.0"
+        - "78.8"
+        - "78.6"
+        - "78.3"
+        - "78.1"
+        - "77.8"
+        - "77.6"
+        - "77.4"
+        - "77.1"
+        - "76.9"
+        - "76.7"
+        - "76.5"
+        - "76.2"
+        - "76.0"
+        - "75.8"
+        - "75.5"
+        - "75.3"
+        - "75.1"
+        - "74.9"
+        - "74.6"
+        - "74.4"
+        - "74.2"
+        - "74.0"
+      maxspeed: 
+        - "0"
+        - "0"
+        - "0"
+        - "3"
+        - "2"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "5"
+        - "16"
+        - "18"
+        - "19"
+        - "18"
+        - "17"
+        - "18"
+        - "19"
+        - "17"
+        - "17"
+        - "19"
+        - "19"
+        - "20"
+        - "22"
+        - "21"
+        - "23"
+        - "21"
+        - "21"
+        - "20"
+        - "19"
+        - "18"
+        - "18"
+        - "17"
+        - "19"
+        - "17"
+        - "17"
+        - "19"
+        - "20"
+        - "21"
+        - "29"
+        - "28"
+        - "28"
+        - "30"
+        - "31"
+        - "29"
+        - "31"
+        - "32"
+        - "34"
+        - "32"
+        - "31"
+        - "33"
+        - "34"
+        - "32"
+        - "34"
+        - "33"
+        - "31"
+        - "33"
+        - "35"
+        - "33"
+        - "33"
+        - "35"
+        - "37"
+        - "37"
+        - "25"
+        - "27"
+        - "29"
+        - "29"
+        - "28"
+        - "26"
+        - "24"
+        - "25"
+        - "24"
+        - "24"
+        - "22"
+        - "20"
+        - "21"
+        - "23"
+        - "23"
+        - "22"
+        - "24"
+        - "26"
+        - "25"
+        - "27"
+        - "25"
+        - "25"
+        - "24"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "10"
+        - "22"
+        - "21"
+        - "23"
+        - "23"
+        - "24"
+        - "23"
+        - "21"
+        - "22"
+        - "20"
+        - "19"
+        - "21"
+        - "22"
+        - "21"
+        - "21"
+        - "19"
+        - "21"
+        - "21"
+        - "22"
+        - "23"
+        - "21"
+        - "20"
+        - "20"
+        - "19"
+      hyd_temp: 
+        - "73.20"
+        - "72.20"
+        - "72.27"
+        - "75.65"
+        - "77.25"
+        - "82.38"
+        - "88.06"
+        - "90.02"
+        - "105.34"
+        - "109.79"
+        - "110.94"
+        - "115.58"
+        - "81.38"
+        - "79.38"
+        - "78.38"
+        - "77.38"
+        - "76.38"
+        - "75.38"
+        - "74.38"
+        - "72.38"
+        - "70.38"
+        - "69.38"
+        - "67.38"
+        - "65.38"
+        - "63.38"
+        - "61.38"
+        - "59.38"
+        - "58.38"
+        - "56.38"
+        - "56.38"
+        - "56.38"
+        - "54.38"
+        - "52.38"
+        - "50.38"
+        - "48.38"
+        - "48.51"
+        - "48.61"
+        - "48.51"
+        - "48.65"
+        - "48.15"
+        - "47.95"
+        - "48.10"
+        - "48.68"
+        - "48.78"
+        - "49.18"
+        - "49.83"
+        - "49.86"
+        - "49.61"
+        - "48.93"
+        - "49.02"
+        - "49.72"
+        - "50.19"
+        - "50.32"
+        - "50.47"
+        - "50.28"
+        - "50.92"
+        - "51.28"
+        - "50.74"
+        - "51.05"
+        - "50.61"
+        - "50.66"
+        - "50.80"
+        - "50.92"
+        - "50.74"
+        - "50.63"
+        - "51.27"
+        - "50.99"
+        - "50.62"
+        - "50.51"
+        - "50.63"
+        - "50.61"
+        - "50.38"
+        - "50.02"
+        - "49.78"
+        - "49.89"
+        - "50.38"
+        - "50.11"
+        - "49.68"
+        - "49.37"
+        - "49.10"
+        - "48.65"
+        - "48.56"
+        - "49.21"
+        - "49.34"
+        - "49.57"
+        - "49.83"
+        - "49.99"
+        - "50.11"
+        - "49.73"
+        - "50.35"
+        - "49.57"
+        - "49.23"
+        - "49.56"
+        - "49.40"
+        - "49.42"
+        - "49.32"
+        - "49.87"
+        - "50.36"
+        - "50.17"
+        - "50.42"
+        - "50.18"
+        - "50.65"
+        - "49.97"
+        - "50.18"
+        - "50.22"
+        - "50.12"
+        - "49.70"
+        - "50.07"
+        - "50.15"
+        - "49.82"
+        - "49.80"
+        - "49.87"
+        - "49.53"
+        - "49.49"
+        - "50.10"
+        - "50.13"
+        - "50.62"
+    channels: 
+      - 
+        display_name: "Location"
+        id: "location"
+        properties: 
+          data_type: "LOCATION"
+          data_unit: "LAT_LONG"
+          description: "Vehicle Location"
+          precision: "0"
+          locked: "true"
+        protocol_config: 
+          report_rate: "10000"
+          timeout: "60000"
+      - 
+        display_name: "Engine On/Off"
+        id: "eng_status"
+        properties: 
+          data_type: "BOOLEAN"
+          data_unit: ""
+          description: "Engine on/off status"
+          precision: "0"
+          locked: "true"
+        protocol_config: 
+          report_rate: "10000"
+          timeout: "60000"
+      - 
+        display_name: "Fuel Level"
+        id: "fuel_level"
+        properties: 
+          data_type: "VOLUME"
+          data_unit: "GALLON"
+          description: "Vehicle Fuel Level"
+          precision: "1"
+          locked: "true"
+        protocol_config: 
+          report_rate: "10000.0"
+          timeout: "60000.0"
+      - 
+        display_name: "Max Speed"
+        id: "maxspeed"
+        properties: 
+          data_type: "SPEED"
+          data_unit: "MPH"
+          description: "Max speed recorded during reporting interval"
+          precision: "0"
+          locked: "true"
+        protocol_config: 
+          report_rate: "10000"
+          timeout: "60000"
+      - 
+        display_name: "Hydraulic Fluid Temperature"
+        id: "hyd_temp"
+        properties: 
+          data_type: "TEMPERATURE"
+          data_unit: "DEG_FAHRENHEIT"
+          description: ""
+          precision: "2"
+          locked: "true"
+        protocol_config: 
+          report_rate: "10000"
+          timeout: "60000"
+    rules:
+      - name: Hydraulic Fluid Temperature Threshold
+        thresholds:
+          - enabled: true
+            threshold: 130
+            alarm: upperCritical
+          - enabled: true
+            threshold: 110
+            alarm: upperWarning
+        subscribe: hyd_temp
+      - name: Fuel Level Rule
+        thresholds:
+          - enabled: true
+            threshold: 5
+            alarm: lowerCritical
+          - enabled: true
+            threshold: 15
+            alarm: lowerWarning
+        subscribe: fuel_level
+    file: 
+      name: "mikea exosense simulation csv data - mobile_hydraulics1 (2).csv"
+      size: 5240
+      lastModified: 1570646528520
+siteConfig:
+    favicon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAFcklEQVRoQ+2Za2wUVRTH/+fO0hah1gcITQQfgArE2m71gwLB7oLgozFEU9xtwQdETYQPfDAWI/JBCTEoiqAGogJFuqQKURIBKdvyEoNJu0uTEiQkYKIENBApj7527t/smi3bdndnl1lCwc7HmXP+5/zuOffOnTuCG+SSG4QD/SB9rZL9FemvyFUagf7Wih3Y0du2ZQ/6J2e0Ii8Eyt2/R58VV9cPCYka0Wmcbj5cVtYRvl+8evUAPWjUGBNGS1NFyR+ZKtAVVSSSTO6YxwBME9AFiBOCAQB2auoPBaoUwmkCuS+cqKaeAeIuZagnAUwCcZMmvwl63bOuDUhNjeEMDfkUwCwIcm0mQZBnKRJsb2utOPzy06fs6KVVkUJf3WoFvGonYDxfTXkp6C1Zb0c3ZRCnr24JgLftBEvkS2BOwOP62o52SiBOX90CAMvtBErmGwaB5jGIHkoipESOy/nWYw2vlV5KNaYlSNHGutmisA64evuyMIiQFRApiSZOUgPYAiXvB15wHbICSgrirPaXQmQLAIeVkJ3n8UBi9EhwYcDj/iBZjIQgBb5dkxxQPwEYaCfJVHwtQCISmlwS9LrfSaQXF6Rw485CpYzdgOSlkohdm1RACGit+eihcvev8eL1AnFu2DEajqx9AIbbTTBVfwuQFpCd/2nJjkavq8ISpHjD3nw6QvsB3JtqEpmwiw/CVZ1teo0j27iNptk14Jq6tWn2tIM943YZjKupH5wT0gcg8mAmkktHoycIgdOdwglZlAYAPds7dKlDDz/y4pQzsTG6QIp8/lkCqUongUzZ9gbhL6KxBkrWxotB05wTqJja7QXaBeLc5J8HyspMJZeOTi8QYo8ofpcknx8bPa5n4lakT4EAu0W4OREIgfYss+2OgxVPtURh+mZFLEAi7xWgPOhxVV/3IAS3BDzu5657EICXZHDe0IbShyMby67Wesjnn2EQ89OZpJmypcIy0Xjz8qZR9kF0jdXiQ5rPB7xTN3cDcVbVjoWSgkwll46OafCoQfVRFCQ8mWFyhkleSKZjtoeam+dOP9sNpKjaXykiS9NJIGO25AoABbHbeAAkcQ4CJopD6leC3inf93UQy3HSmmXBcve3/1uQiwT8onmUSm4V8BEgQ3MqTmuF91sAjgEcKpDwJrbXx13aFSF1lal1lUOMSVRqvND8i5D9Qt1OZawQ4E7LPkhmEANCoFnIhaCchMhY0zD/JI2/HZqVEJTHyqQHQnwOSBOEnwDI6ZYPWW8SlUrJVgGGXTFMFAS4ORSSNxwOfAZBcZceeYaar8NQBQIsit5PBDJfRMKHb5f9gePo0OWSpfYm+m4n9Xqtsd0w1CZbIJSxpF4ghtoKYFRvLZoCmUByaXR109RPBL1TartN9sK19bdINlcIOCIqQso6CKeLiCdZkm1trfk52TlfxPl2SI2NqNJan1Ai42GoVQmXW3C71lxmiCwi0BhwnHkLZWVmN5BEzkXV/mYRGZe0xRUnB2a6w1WzdRX56r6U8BlX4utUo8eVH++x5bmW0+dviBxSJ7m0wsTgTNfPtigAOH3+lYDMS1gR4kTA67rnCkF2rQZU4vNeovNi6/nbf5vz7Hm7IIW+Oq8CNiZuLVQHPK5uK1fU1rIixetrRzLLaErU/wTeDXhc79mFiPgvXqycD0zeA2BiHL0WahbE/n+JtbEECRsXVe+cLGJUATLy8kIQOdL8OC9fVe4uKQllBCTyI6g2T+cay0VYAUhWZM8FHNTE3ENeV3OiOCmBhJ3v/+qH3EEDBz9O4G6IXFSUAw3ekiOZAuipM66mJitHDxslquNkQ9nUc1ZxUgaxErrWz/tBrnUFesbvr0h/Ra7SCNwwrfUv50t5UUFKdqAAAAAASUVORK5CYII="
+    logo: "data:image/png;base64,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"
+    primary: "#2C9DB6"
+    secondary: "#224A5A"
+    accent: "#F15C2E"
+    application_name: "ExoSense Mobile Hydraulic Template"
+    icons:
+      -
+        from: "icon-asset"
+        to: "icon-asset-garbagetruck"
+      -
+        from: "icon-device"
+        to: "icon-device-gatewaya"
+      -
+        from: "icon-nav-hardware"
+        to: "icon-device-gatewaya"
