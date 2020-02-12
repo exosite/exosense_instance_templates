@@ -1,3 +1,7 @@
+# ExoSense Template Flavor YAML
+# Water System Template
+version: 0.1
+
 groups:
   - name: Sandbox
     description: Internal group for testing
