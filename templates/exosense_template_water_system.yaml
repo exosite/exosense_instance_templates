@@ -72,10 +72,10 @@ containers:
                 - 1
             position:
               h: 10
-              i: "3"
+              i: '3'
               w: 6
               x: 6
-              "y": 18
+              'y': 18
             channels: []
             rules: []
           - type: currentvalue
@@ -92,10 +92,10 @@ containers:
               showThresholds: false
             position:
               h: 3
-              i: "4"
+              i: '4'
               w: 3
               x: 9
-              "y": 3
+              'y': 3
             channels:
               - filter_hours_10u
             rules: []
@@ -113,10 +113,10 @@ containers:
               showThresholds: false
             position:
               h: 3
-              i: "3"
+              i: '3'
               w: 3
               x: 9
-              "y": 6
+              'y': 6
             channels:
               - filter_hours_5u
             rules: []
@@ -134,10 +134,10 @@ containers:
               showThresholds: false
             position:
               h: 3
-              i: "2"
+              i: '2'
               w: 3
               x: 9
-              "y": 0
+              'y': 0
             channels:
               - pump_hours
             rules: []
@@ -150,10 +150,10 @@ containers:
                 - 0
             position:
               h: 10
-              i: "2"
+              i: '2'
               w: 6
               x: 0
-              "y": 18
+              'y': 18
             channels: []
             rules: []
           - type: currentvalue
@@ -170,175 +170,13 @@ containers:
               showThresholds: false
             position:
               h: 3
-              i: "0"
+              i: '0'
               w: 3
               x: 9
-              "y": 9
+              'y': 9
             channels:
               - level
             rules: []
-          - type: dynamicgraphic
-            configuration:
-              title: >-
-                Visual System Status - Green = healthy, Yellow = warning; Red =
-                critical
-              svgImageId: bef7e96b-f9fb-447e-ab27-89c9a19fe8d6
-              dynamicElements:
-                - svgId: exo_tank_13
-                  ruleId: ""
-                  svgTag: path
-                  signalId: level
-                  colorMode: numberrange
-                  timeoutHideValue: false
-                  numericRangeRules:
-                    - max: 100
-                      min: 67
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#009900"
-                    - max: 66
-                      min: 34
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#CCCC00"
-                    - max: 33
-                      min: 0
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#CC0000"
-                  defaultTextFillColor: "#0000ff"
-                  defaultTextToDisplay: ""
-                  defaultShapeFillColor: "#CCCCCC"
-                - svgId: exo_tank_23
-                  ruleId: ""
-                  svgTag: path
-                  signalId: level
-                  colorMode: numberrange
-                  timeoutHideValue: false
-                  numericRangeRules:
-                    - max: 100
-                      min: 67
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#009900"
-                    - max: 66
-                      min: 34
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#CCCC00"
-                  defaultTextFillColor: "#0000ff"
-                  defaultTextToDisplay: ""
-                  defaultShapeFillColor: "#CCCCCC"
-                - svgId: exo_tank_33
-                  ruleId: ""
-                  svgTag: path
-                  signalId: level
-                  colorMode: numberrange
-                  timeoutHideValue: false
-                  numericRangeRules:
-                    - max: 100
-                      min: 67
-                      textFillColor: "#0000ff"
-                      textToDisplay: null
-                      shapeFillColor: "#009900"
-                  defaultTextFillColor: "#0000ff"
-                  defaultTextToDisplay: ""
-                  defaultShapeFillColor: "#CCCCCC"
-                - svgId: exo_filter_5u
-                  ruleId: dd21972f-cd41-41ca-a528-b92b74172505
-                  svgTag: path
-                  signalId: filter_dp_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_filter_10u
-                  ruleId: 17730841-9014-47ee-a6a5-adc644916a76
-                  svgTag: path
-                  signalId: filter_dp_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_pump_path
-                  ruleId: 725c7707-9ce6-4bb9-9f56-85c9876aa47a
-                  svgTag: path
-                  signalId: pump_amps
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_pump_text2
-                  units: AMPERE
-                  ruleId: ""
-                  svgTag: text
-                  signalId: pump_amps
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_pump_text1
-                  units: ROTATIONS_PER_MIN
-                  ruleId: ""
-                  svgTag: text
-                  signalId: pump_rpm
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_filter_10u_text1
-                  units: HOUR
-                  ruleId: ""
-                  svgTag: text
-                  signalId: filter_hours_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_filter_5u_text1
-                  units: HOUR
-                  ruleId: ""
-                  svgTag: text
-                  signalId: filter_hours_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_pump_text3
-                  units: HOUR
-                  ruleId: ""
-                  svgTag: text
-                  signalId: pump_hours
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_filter_10u_text2
-                  units: PSI
-                  ruleId: ""
-                  svgTag: text
-                  signalId: filter_dp_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_filter_5u_text2
-                  units: PSI
-                  ruleId: ""
-                  svgTag: text
-                  signalId: filter_dp_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo_tank_text1
-                  units: PERCENT
-                  ruleId: ""
-                  svgTag: text
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-            position:
-              h: 12
-              i: "5"
-              w: 9
-              x: 0
-              "y": 0
-            channels:
-              - filter_dp_10u
-              - filter_dp_5u
-              - flow_10u
-              - flow_5u
-              - filter_hours_10u
-              - filter_hours_5u
-              - pump_hours
-              - pump_amps
-              - pump_rpm
-              - level
-            rules:
-              - filter_dp_10u
-              - pump_amps
-              - filter_dp_5u
           - type: imageoverlay
             configuration:
               title: Overlay
@@ -348,54 +186,176 @@ containers:
                 - h: 0
                   w: 0
                   x: -59.802495511261625
-                  "y": 99.54333790745281
+                  'y': 99.54333790745281
                   name: Tank Level
                   units: PERCENT
                   status: null
                   metric_id: level
             position:
               h: 6
-              i: "0"
+              i: '0'
               w: 12
               x: 0
-              "y": 12
+              'y': 12
             url: pump.png
             channels:
               - level
             rules: []
+          - type: dynamicgraphic
+            configuration:
+              title: >-
+                Visual System Status - Green = healthy, Yellow = warning; Red =
+                critical
+              svgImageId: cd8b9a51-0053-408f-bd0e-4f7ef4f00fd4
+              dynamicElements:
+                - svgId: exo-tank-rim_1_
+                  ruleId: 39d4c6cb-d453-48be-9bd6-57e0e5376aec
+                  svgTag: linearGradient
+                  signalId: level
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-tank-rim
+                  ruleId: 39d4c6cb-d453-48be-9bd6-57e0e5376aec
+                  svgTag: path
+                  signalId: level
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-tank-outline
+                  units: PERCENT
+                  ruleId: 39d4c6cb-d453-48be-9bd6-57e0e5376aec
+                  svgTag: g
+                  signalId: level
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter2-outline
+                  ruleId: dd21972f-cd41-41ca-a528-b92b74172505
+                  svgTag: path
+                  signalId: filter_dp_5u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter1-outline_1_
+                  ruleId: 17730841-9014-47ee-a6a5-adc644916a76
+                  svgTag: path
+                  signalId: filter_dp_10u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-tank-level
+                  units: PERCENT
+                  ruleId: ''
+                  svgTag: text
+                  signalId: level
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-pump-rpm
+                  units: ROTATIONS_PER_MIN
+                  ruleId: ''
+                  svgTag: text
+                  signalId: pump_rpm
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-pump-amp
+                  units: AMPERE
+                  ruleId: ''
+                  svgTag: text
+                  signalId: pump_amps
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-pump-hours
+                  units: HOUR
+                  ruleId: ''
+                  svgTag: text
+                  signalId: pump_hours
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-pump-outline
+                  ruleId: 725c7707-9ce6-4bb9-9f56-85c9876aa47a
+                  svgTag: path
+                  signalId: pump_amps
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter1-psi
+                  units: PSI
+                  ruleId: ''
+                  svgTag: text
+                  signalId: filter_dp_10u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter1-hours
+                  units: HOUR
+                  ruleId: ''
+                  svgTag: text
+                  signalId: filter_hours_10u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter2-psi
+                  units: PSI
+                  ruleId: ''
+                  svgTag: text
+                  signalId: filter_dp_5u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter2-hours
+                  units: HOUR
+                  ruleId: ''
+                  svgTag: text
+                  signalId: filter_hours_5u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-pump-indicator
+                  ruleId: 725c7707-9ce6-4bb9-9f56-85c9876aa47a
+                  svgTag: circle
+                  signalId: pump_amps
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter1-indicator
+                  ruleId: 17730841-9014-47ee-a6a5-adc644916a76
+                  svgTag: circle
+                  signalId: filter_dp_10u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-filter2-indicator
+                  ruleId: dd21972f-cd41-41ca-a528-b92b74172505
+                  svgTag: circle
+                  signalId: filter_dp_5u
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+                - svgId: exo-tank-indicator_4_
+                  ruleId: 39d4c6cb-d453-48be-9bd6-57e0e5376aec
+                  svgTag: circle
+                  signalId: level
+                  colorMode: rulestatus
+                  timeoutHideValue: false
+            position:
+              h: 12
+              i: '5'
+              w: 9
+              x: 0
+              'y': 0
+            channels:
+              - filter_dp_10u
+              - flow_10u
+              - filter_hours_10u
+              - pump_hours
+              - pump_rpm
+              - filter_dp_5u
+              - flow_5u
+              - filter_hours_5u
+              - pump_amps
+              - level
+            rules:
+              - pump_amps
+              - filter_dp_10u
+              - level
+              - filter_dp_5u
+              - filter_dp_5u
+              - pump_amps
+              - filter_dp_10u
+              - level
+              - level
+              - level
       - name: System Analytics
         order: 1
         panels:
-          - type: barchart
-            configuration:
-              title: Gallons per Hour
-              yAxis:
-                max: 100
-                min: 0
-                auto: true
-              signals:
-                - unit: GALLON
-                  signalId: flow_10u
-                  aggregate: sum
-                  columnColor: "#269DF9"
-                - unit: GALLON
-                  signalId: flow_5u
-                  aggregate: sum
-                  columnColor: "#F19111"
-              timezone: America/Chicago
-              timeWindow: 7d
-              barDirection: vertical
-              signalsDuration: 1d
-            position:
-              h: 12
-              i: "0"
-              w: 12
-              x: 0
-              "y": 18
-            channels:
-              - flow_10u
-              - flow_5u
-            rules: []
           - type: linechart
             configuration:
               title: Pump Current Draw
@@ -438,10 +398,10 @@ containers:
               showThresholds: true
             position:
               h: 6
-              i: "0"
+              i: '0'
               w: 9
               x: 3
-              "y": 0
+              'y': 0
             channels:
               - pump_amps
             rules:
@@ -466,10 +426,10 @@ containers:
                   hideValueDuringTimeout: null
             position:
               h: 6
-              i: "0"
+              i: '0'
               w: 3
               x: 0
-              "y": 0
+              'y': 0
             channels:
               - pump_amps
             rules:
@@ -494,10 +454,10 @@ containers:
                   hideValueDuringTimeout: null
             position:
               h: 6
-              i: "4"
+              i: '4'
               w: 3
               x: 0
-              "y": 12
+              'y': 12
             channels:
               - filter_dp_5u
             rules:
@@ -518,10 +478,10 @@ containers:
                   showThresholds: true
             position:
               h: 6
-              i: "0"
+              i: '0'
               w: 3
               x: 0
-              "y": 6
+              'y': 6
             channels:
               - filter_dp_10u
             rules:
@@ -577,15 +537,16 @@ containers:
               dataGapMultiplier: null
             position:
               h: 12
-              i: "0"
+              i: '0'
               w: 9
               x: 3
-              "y": 6
+              'y': 6
             channels:
               - filter_dp_10u
               - filter_dp_5u
             rules:
               - filter_dp_5u
+
 
 profiles:
   water_system:
