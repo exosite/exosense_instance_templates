@@ -325,7 +325,7 @@ containers:
                   signalId: level
                   colorMode: rulestatus
                   timeoutHideValue: false
-            url: https://...
+            url: https://raw.githubusercontent.com/exosite/exosense_instance_templates/master/img/water_system_diagram.svg
             position:
               h: 12
               i: '5'
