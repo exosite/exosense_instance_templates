@@ -177,36 +177,11 @@ containers:
             channels:
               - level
             rules: []
-          - type: imageoverlay
-            configuration:
-              title: Overlay
-              iconSize: tiny
-              assetPositions: []
-              metricPositions:
-                - h: 0
-                  w: 0
-                  x: -59.802495511261625
-                  'y': 99.54333790745281
-                  name: Tank Level
-                  units: PERCENT
-                  status: null
-                  metric_id: level
-            position:
-              h: 6
-              i: '0'
-              w: 12
-              x: 0
-              'y': 12
-            url: pump.png
-            channels:
-              - level
-            rules: []
           - type: dynamicgraphic
             configuration:
               title: >-
                 Visual System Status - Green = healthy, Yellow = warning; Red =
                 critical
-              svgImageId: cd8b9a51-0053-408f-bd0e-4f7ef4f00fd4
               dynamicElements:
                 - svgId: exo-tank-rim_1_
                   ruleId: level
@@ -333,26 +308,20 @@ containers:
               x: 0
               'y': 0
             channels:
+              - filter_dp_5u
               - filter_dp_10u
-              - flow_10u
+              - filter_hours_5u
               - filter_hours_10u
+              - flow_5u
+              - flow_10u
+              - level
+              - pump_amps
               - pump_hours
               - pump_rpm
-              - filter_dp_5u
-              - flow_5u
-              - filter_hours_5u
-              - pump_amps
-              - level
             rules:
               - pump_amps
-              - filter_dp_10u
-              - level
               - filter_dp_5u
-              - filter_dp_5u
-              - pump_amps
               - filter_dp_10u
-              - level
-              - level
               - level
       - name: System Analytics
         order: 1
@@ -1853,6 +1822,43 @@ profiles:
           timeout: "60000"
           locked: "TRUE"
         locked: "TRUE"
+    rules:
+      - name: Differential Pressure 10u - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 10
+            alarm: upperCritical
+          - enabled: true
+            threshold: 8
+            alarm: upperWarning
+        subscribe: filter_dp_10u
+      - name: Differential Pressure 5u - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 10
+            alarm: upperCritical
+          - enabled: true
+            threshold: 8
+            alarm: upperWarning
+        subscribe: filter_dp_5u
+      - name: Tank Level - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 55
+            alarm: lowerWarning
+          - enabled: true
+            threshold: 33
+            alarm: lowerCritical
+        subscribe: level
+      - name: Pump Current Draw - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 16
+            alarm: upperCritical
+          - enabled: true
+            threshold: 14
+            alarm: upperWarning
+        subscribe: pump_amps
     file:
       name: "simulated_full_data_set - water (3).csv"
       size: 5969
