@@ -58,404 +58,11 @@ assets:
     identity: water_system2
 
 containers:
-  - profile: water_system
+  - profile: waterprocesssystemtemplate
     dashboards:
-      - name: Real Time Status
-        order: 0
-        panels:
-          - type: log
-            configuration:
-              title: >-
-                Corrective Actions - Click the (+) icon to create log record of
-                corrective actions taken.
-              status:
-                - 1
-            position:
-              h: 10
-              i: '3'
-              w: 6
-              x: 6
-              'y': 18
-            channels: []
-            rules: []
-          - type: currentvalue
-            configuration:
-              title: Hours on Filter 10u
-              units: HOUR
-              textSize: 50
-              showUnits: true
-              thresholds:
-                warningMax: 0
-                warningMin: 0
-                criticalMax: 0
-                criticalMin: 0
-              showThresholds: false
-            position:
-              h: 3
-              i: '4'
-              w: 3
-              x: 9
-              'y': 3
-            channels:
-              - filter_hours_10u
-            rules: []
-          - type: currentvalue
-            configuration:
-              title: Hours on Filter 5u
-              units: HOUR
-              textSize: 50
-              showUnits: true
-              thresholds:
-                warningMax: 0
-                warningMin: 0
-                criticalMax: 0
-                criticalMin: 0
-              showThresholds: false
-            position:
-              h: 3
-              i: '3'
-              w: 3
-              x: 9
-              'y': 6
-            channels:
-              - filter_hours_5u
-            rules: []
-          - type: currentvalue
-            configuration:
-              title: Hours on Pump
-              units: HOUR
-              textSize: 50
-              showUnits: true
-              thresholds:
-                warningMax: 0
-                warningMin: 0
-                criticalMax: 0
-                criticalMin: 0
-              showThresholds: false
-            position:
-              h: 3
-              i: '2'
-              w: 3
-              x: 9
-              'y': 0
-            channels:
-              - pump_hours
-            rules: []
-          - type: log
-            configuration:
-              title: System Alerts
-              status:
-                - 2
-                - 3
-                - 0
-            position:
-              h: 10
-              i: '2'
-              w: 6
-              x: 0
-              'y': 18
-            channels: []
-            rules: []
-          - type: currentvalue
-            configuration:
-              title: Tank Level
-              units: PERCENT
-              textSize: 50
-              showUnits: true
-              thresholds:
-                warningMax: 0
-                warningMin: 0
-                criticalMax: 0
-                criticalMin: 0
-              showThresholds: false
-            position:
-              h: 3
-              i: '0'
-              w: 3
-              x: 9
-              'y': 9
-            channels:
-              - level
-            rules: []
-          - type: dynamicgraphic
-            configuration:
-              title: >-
-                Visual System Status - Green = healthy, Yellow = warning; Red =
-                critical
-              dynamicElements:
-                - svgId: exo-tank-rim_1_
-                  ruleId: level
-                  svgTag: linearGradient
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-tank-rim
-                  ruleId: level
-                  svgTag: path
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-tank-outline
-                  units: PERCENT
-                  ruleId: level
-                  svgTag: g
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter2-outline
-                  ruleId: filter_dp_5u
-                  svgTag: path
-                  signalId: filter_dp_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter1-outline_1_
-                  ruleId: filter_dp_10u
-                  svgTag: path
-                  signalId: filter_dp_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-tank-level
-                  units: PERCENT
-                  ruleId: ''
-                  svgTag: text
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-pump-rpm
-                  units: ROTATIONS_PER_MIN
-                  ruleId: ''
-                  svgTag: text
-                  signalId: pump_rpm
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-pump-amp
-                  units: AMPERE
-                  ruleId: ''
-                  svgTag: text
-                  signalId: pump_amps
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-pump-hours
-                  units: HOUR
-                  ruleId: ''
-                  svgTag: text
-                  signalId: pump_hours
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-pump-outline
-                  ruleId: pump_amps
-                  svgTag: path
-                  signalId: pump_amps
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter1-psi
-                  units: PSI
-                  ruleId: ''
-                  svgTag: text
-                  signalId: filter_dp_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter1-hours
-                  units: HOUR
-                  ruleId: ''
-                  svgTag: text
-                  signalId: filter_hours_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter2-psi
-                  units: PSI
-                  ruleId: ''
-                  svgTag: text
-                  signalId: filter_dp_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter2-hours
-                  units: HOUR
-                  ruleId: ''
-                  svgTag: text
-                  signalId: filter_hours_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-pump-indicator
-                  ruleId: pump_amps
-                  svgTag: circle
-                  signalId: pump_amps
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter1-indicator
-                  ruleId: filter_dp_10u
-                  svgTag: circle
-                  signalId: filter_dp_10u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-filter2-indicator
-                  ruleId: filter_dp_5u
-                  svgTag: circle
-                  signalId: filter_dp_5u
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-                - svgId: exo-tank-indicator_4_
-                  ruleId: level
-                  svgTag: circle
-                  signalId: level
-                  colorMode: rulestatus
-                  timeoutHideValue: false
-            url: https://raw.githubusercontent.com/exosite/exosense_instance_templates/master/img/water_system_diagram.svg
-            position:
-              h: 12
-              i: '5'
-              w: 9
-              x: 0
-              'y': 0
-            channels:
-              - filter_dp_5u
-              - filter_dp_10u
-              - filter_hours_5u
-              - filter_hours_10u
-              - flow_5u
-              - flow_10u
-              - level
-              - pump_amps
-              - pump_hours
-              - pump_rpm
-            rules:
-              - pump_amps
-              - filter_dp_5u
-              - filter_dp_10u
-              - level
       - name: System Analytics
         order: 1
         panels:
-          - type: linechart
-            configuration:
-              title: Pump Current Draw
-              units: AMPERE
-              yAxis:
-                max: 25
-                min: 0
-                auto: false
-              liveMode:
-                unit: m
-                value: 30
-                maxDatapoints: 500
-              showUnits: true
-              thresholds:
-                warningMax: 0
-                warningMin: 0
-                criticalMax: 0
-                criticalMin: 0
-              defaultTime:
-                unit: null
-                value: null
-                enabled: null
-                liveMode: true
-              timeOptions:
-                - unit: h
-                  value: 1
-                  enabled: true
-                - unit: h
-                  value: 12
-                  enabled: true
-                - unit: d
-                  value: 1
-                  enabled: true
-                - unit: d
-                  value: 5
-                  enabled: true
-                - unit: d
-                  value: 30
-                  enabled: true
-              showThresholds: true
-            position:
-              h: 6
-              i: '0'
-              w: 9
-              x: 3
-              'y': 0
-            channels:
-              - pump_amps
-            rules:
-              - pump_amps
-          - type: moongauge
-            configuration:
-              ticks:
-                majorInterval: 1
-                minorInterval: 1
-                majorIntervalCustom: null
-                minorIntervalCustom: null
-              title: Pump Current Draw
-              showTicks: null
-              gaugeSignals:
-                - units: AMPERE
-                  limits:
-                    max: 25
-                    min: 0
-                    auto: false
-                  signalId: pump_amps
-                  showThresholds: true
-                  hideValueDuringTimeout: null
-            position:
-              h: 6
-              i: '0'
-              w: 3
-              x: 0
-              'y': 0
-            channels:
-              - pump_amps
-            rules:
-              - pump_amps
-          - type: moongauge
-            configuration:
-              ticks:
-                majorInterval: 1
-                minorInterval: 1
-                majorIntervalCustom: null
-                minorIntervalCustom: null
-              title: Differential Pressure 5u
-              showTicks: null
-              gaugeSignals:
-                - units: PSI
-                  limits:
-                    max: 20
-                    min: -20
-                    auto: false
-                  signalId: filter_dp_5u
-                  showThresholds: true
-                  hideValueDuringTimeout: null
-            position:
-              h: 6
-              i: '4'
-              w: 3
-              x: 0
-              'y': 12
-            channels:
-              - filter_dp_5u
-            rules:
-              - filter_dp_5u
-          - type: moongauge
-            configuration:
-              ticks:
-                majorInterval: 1
-                minorInterval: 1
-              title: Differential Pressure 10u
-              gaugeSignals:
-                - units: PSI
-                  limits:
-                    max: 20
-                    min: -20
-                    auto: false
-                  signalId: filter_dp_10u
-                  showThresholds: true
-            position:
-              h: 6
-              i: '0'
-              w: 3
-              x: 0
-              'y': 6
-            channels:
-              - filter_dp_10u
-            rules:
-              - filter_dp_10u
           - type: complexlinechart
             configuration:
               axes:
@@ -516,6 +123,388 @@ containers:
               - filter_dp_5u
             rules:
               - filter_dp_5u
+          - type: linechart
+            configuration:
+              title: Pump Current Draw
+              units: AMPERE
+              yAxis:
+                max: 25
+                min: 0
+                auto: false
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: null
+                value: null
+                enabled: null
+                liveMode: true
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showThresholds: true
+            position:
+              h: 6
+              i: '0'
+              w: 9
+              x: 3
+              'y': 0
+            channels:
+              - pump_amps
+            rules:
+              - pump_amps
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+              title: Differential Pressure 10u
+              gaugeSignals:
+                - units: PSI
+                  limits:
+                    max: 20
+                    min: -20
+                    auto: false
+                  signalId: filter_dp_10u
+                  showThresholds: true
+            position:
+              h: 6
+              i: '0'
+              w: 3
+              x: 0
+              'y': 6
+            channels:
+              - filter_dp_10u
+            rules:
+              - filter_dp_10u
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+                majorIntervalCustom: null
+                minorIntervalCustom: null
+              title: Differential Pressure 5u
+              showTicks: null
+              gaugeSignals:
+                - units: PSI
+                  limits:
+                    max: 20
+                    min: -20
+                    auto: false
+                  signalId: filter_dp_5u
+                  showThresholds: true
+                  hideValueDuringTimeout: null
+            position:
+              h: 6
+              i: '4'
+              w: 3
+              x: 0
+              'y': 12
+            channels:
+              - filter_dp_5u
+            rules:
+              - filter_dp_5u
+          - type: moongauge
+            configuration:
+              ticks:
+                majorInterval: 1
+                minorInterval: 1
+                majorIntervalCustom: null
+                minorIntervalCustom: null
+              title: Pump Current Draw
+              showTicks: null
+              gaugeSignals:
+                - units: AMPERE
+                  limits:
+                    max: 25
+                    min: 0
+                    auto: false
+                  signalId: pump_amps
+                  showThresholds: true
+                  hideValueDuringTimeout: null
+            position:
+              h: 6
+              i: '0'
+              w: 3
+              x: 0
+              'y': 0
+            channels:
+              - pump_amps
+            rules:
+              - pump_amps
+      - name: Real Time Status
+        order: 0
+        panels:
+          - type: imageoverlay
+            configuration:
+              title: Overlay
+              iconSize: tiny
+              assetPositions: []
+              metricPositions:
+                - h: 0
+                  w: 0
+                  x: -59.802495511261625
+                  'y': 99.54333790745281
+                  name: Tank Level
+                  units: PERCENT
+                  status: null
+                  metric_id: level
+            position:
+              h: 6
+              i: '0'
+              w: 12
+              x: 0
+              'y': 12
+            url: https://raw.githubusercontent.com/exosite/exosense_instance_templates/master/img/water_info.png
+            channels:
+              - level
+            rules: []
+          - type: log
+            configuration:
+              title: System Alerts
+              status:
+                - 2
+                - 3
+                - 0
+            position:
+              h: 10
+              i: '2'
+              w: 6
+              x: 0
+              'y': 18
+            channels: []
+            rules: []
+          - type: currentvalue
+            configuration:
+              title: Hours on Pump
+              units: HOUR
+              textSize: 50
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              showThresholds: false
+            position:
+              h: 3
+              i: '2'
+              w: 3
+              x: 9
+              'y': 0
+            channels:
+              - pump_hours
+            rules: []
+          - type: currentvalue
+            configuration:
+              title: Hours on Filter 10u
+              units: HOUR
+              textSize: 50
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              showThresholds: false
+            position:
+              h: 3
+              i: '4'
+              w: 3
+              x: 9
+              'y': 3
+            channels:
+              - filter_hours_10u
+            rules: []
+          - type: currentvalue
+            configuration:
+              title: Tank Level
+              units: PERCENT
+              textSize: 50
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              showThresholds: false
+            position:
+              h: 3
+              i: '0'
+              w: 3
+              x: 9
+              'y': 9
+            channels:
+              - level
+            rules: []
+          - type: log
+            configuration:
+              title: >-
+                Corrective Actions - Click the (+) icon to create log record of
+                corrective actions taken.
+              status:
+                - 1
+            position:
+              h: 10
+              i: '3'
+              w: 6
+              x: 6
+              'y': 18
+            channels: []
+            rules: []
+          - type: currentvalue
+            configuration:
+              title: Hours on Filter 5u
+              units: HOUR
+              textSize: 50
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              showThresholds: false
+            position:
+              h: 3
+              i: '3'
+              w: 3
+              x: 9
+              'y': 6
+            channels:
+              - filter_hours_5u
+            rules: []
+          - type: imageoverlay
+            configuration:
+              title: >-
+                Visual System Status - Green = healthy, Yellow = warning; Red =
+                critical
+              iconSize: compact
+              assetPositions: []
+              metricPositions:
+                - h: 0
+                  w: 0
+                  x: 58.506636355552466
+                  'y': 9.818524922289967
+                  name: Differential Pressure 10u
+                  units: PSI
+                  status: null
+                  metric_id: filter_dp_10u
+                - h: 0
+                  w: 0
+                  x: 81.0595487097801
+                  'y': 9.57904870467314
+                  name: Differential Pressure 5u
+                  units: PSI
+                  status: null
+                  metric_id: filter_dp_5u
+                - h: 0
+                  w: 0
+                  x: 58.120015000908566
+                  'y': 25.38447906738382
+                  name: Flow Rate 10u
+                  units: GALLONS_PER_MIN
+                  status: null
+                  metric_id: flow_10u
+                - h: 0
+                  w: 0
+                  x: 80.93067492489881
+                  'y': 25.38447906738382
+                  name: Flow Rate 5u
+                  units: GALLONS_PER_MIN
+                  status: null
+                  metric_id: flow_5u
+                - h: 0
+                  w: 0
+                  x: 58.248888785789866
+                  'y': 17.242287668411652
+                  name: Hours on Filter 10u
+                  units: HOUR
+                  status: null
+                  metric_id: filter_hours_10u
+                - h: 0
+                  w: 0
+                  x: 80.93067492489881
+                  'y': 17.002811450794823
+                  name: Hours on Filter 5u
+                  units: HOUR
+                  status: null
+                  metric_id: filter_hours_5u
+                - h: 0
+                  w: 0
+                  x: 36.855840495493936
+                  'y': 51.00843435238447
+                  name: Hours on Pump
+                  units: HOUR
+                  status: null
+                  metric_id: pump_hours
+                - h: 0
+                  w: 0
+                  x: 36.726966710612636
+                  'y': 43.345195388645955
+                  name: Pump Current Draw
+                  units: AMPERE
+                  status: null
+                  metric_id: pump_amps
+                - h: 0
+                  w: 0
+                  x: 36.598092925731336
+                  'y': 36.1609088601411
+                  name: Pump RPM
+                  units: ROTATIONS_PER_MIN
+                  status: null
+                  metric_id: pump_rpm
+                - h: 0
+                  w: 0
+                  x: 6.957122403032144
+                  'y': 57.9532446632725
+                  name: Tank Level
+                  units: PERCENT
+                  status: null
+                  metric_id: level
+            position:
+              h: 12
+              i: '0'
+              w: 9
+              x: 0
+              'y': 0
+            url: https://raw.githubusercontent.com/exosite/exosense_instance_templates/master/img/water_pump.png
+            channels:
+              - filter_dp_10u
+              - filter_dp_5u
+              - flow_10u
+              - flow_5u
+              - pump_hours
+              - filter_hours_10u
+              - filter_hours_5u
+              - level
+              - pump_amps
+              - pump_rpm
+            rules:
+              - level
+              - pump_amps
+              - filter_dp_5u
+              - filter_dp_10u
 
 profiles:
   water_system:
