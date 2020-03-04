@@ -58,7 +58,7 @@ assets:
     identity: water_system2
 
 containers:
-  - profile: waterprocesssystemtemplate
+  - profile: water_system
     dashboards:
       - name: System Analytics
         order: 1
