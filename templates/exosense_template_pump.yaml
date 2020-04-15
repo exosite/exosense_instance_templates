@@ -1,0 +1,1785 @@
+# ExoSense Flavor YAML
+version: 0.1
+
+groups:
+  - name: Sandbox
+    description: Internal group for testing
+    devices:
+      - simPumpDevice1
+
+  - name: Pump
+    description: Pump Group
+    devices:
+      - simPumpDevice2
+      - simPumpDevice4
+
+  - name: Pilot Customer
+    description: The first customer
+    children:
+      - name: Location 1
+        description: Customer's 1st location
+        devices:
+          - simPumpDevice3
+      - name: Location 2
+        description: Customers 2nd location
+
+# Roles to be applied to the instance
+roles:
+  - name: TrialAdmin
+    permissions:
+      - Api Tokens
+      - Asset Management
+      - Dashboard Management
+      - Device Management
+      - Device Software Package Administration
+      - Device Software Package Management
+      - Group Management
+      - Legal
+      - Setup - Documents
+      - Setup - Roles
+      - Setup - Theme
+      - User Management
+      - View Asset
+      - View Asset Data
+
+  - name: CustomerSiteManager
+    permissions:
+      - Group Management
+      - Asset Management
+      - Dashboard Management
+      - Device Management
+      - Device Software Package Administration
+      - Device Software Package Management
+      - User Management
+      - View Asset
+      - View Asset Data
+
+  - name: CustomerFieldTechnician
+    permissions:
+      - View Asset
+      - View Asset Data
+
+devices:
+  - identity: simPumpDevice1
+    profile: pump
+  - identity: simPumpDevice2
+    profile: pump
+  - identity: simPumpDevice3
+    profile: pump
+  - identity: simPumpDevice4
+    profile: pump
+  - identity: simPumpDevice5
+    simulate: false
+    profile: pump
+
+assets:
+  - name: Pump Simulated 1 - template
+    identity: simPumpDevice1
+    createTemplate: true
+  - name: Pump Simulated 2
+    identity: simPumpDevice2
+  - name: Pump Simulated 3
+    identity: simPumpDevice3
+  - name: Pump Simulated 4
+    identity: simPumpDevice4
+
+siteConfig:
+  favicon: "data:image/png;base64,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"
+  logo: "data:image/png;base64,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"
+  primary: "#F65B0A"
+  secondary: "#1483CC"
+  accent: "#25BAEB"
+  application_name: "ExoSense Pump Template"
+  icons:
+    -
+      from: "icon-asset"
+      to: "icon-asset-pump"
+    -
+      from: "icon-device"
+      to: "icon-device-gatewaya"
+    -
+      from: "icon-nav-hardware"
+      to: "icon-device-gatewaya"
+
+
+containers:
+  - profile: pump
+    dashboards:
+      - name: Realtime
+        order: 0
+        panels:
+          - type: moongauge
+            configuration:
+              title: Current Draw
+              showTicks: true
+              gaugeSignals:
+                - units: AMPERE
+                  limits:
+                    max: 6
+                    min: 0
+                    auto: false
+                  signalId: current
+                  showThresholds: true
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "9"
+              w: 3
+              x: 9
+              "y": 0
+            channels:
+              - current
+            rules:
+              - current
+          - type: moongauge
+            configuration:
+              title: Flow Rate
+              showTicks: true
+              gaugeSignals:
+                - units: GALLONS_PER_MIN
+                  limits:
+                    max: 100
+                    min: 0
+                    auto: false
+                  signalId: flow
+                  showThresholds: false
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "9"
+              w: 3
+              x: 6
+              "y": 6
+            channels:
+              - flow
+            rules: []
+          - type: moongauge
+            configuration:
+              title: Pump Temperature
+              showTicks: true
+              gaugeSignals:
+                - units: DEG_FAHRENHEIT
+                  limits:
+                    max: 200
+                    min: 0
+                    auto: false
+                  signalId: temp_p
+                  showThresholds: true
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "7"
+              w: 3
+              x: 6
+              "y": 12
+            channels:
+              - temp_p
+            rules:
+              - temp_p
+          - type: moongauge
+            configuration:
+              title: Discharge Pressure
+              showTicks: true
+              gaugeSignals:
+                - units: PSI
+                  limits:
+                    max: 50
+                    min: 0
+                    auto: false
+                  signalId: pressure_d
+                  showThresholds: false
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "5"
+              w: 3
+              x: 6
+              "y": 0
+            channels:
+              - pressure_d
+            rules: []
+          - type: moongauge
+            configuration:
+              title: Speed
+              showTicks: true
+              gaugeSignals:
+                - units: ROTATIONS_PER_MIN
+                  limits:
+                    max: 4000
+                    min: 0
+                    auto: false
+                  signalId: rpm
+                  showThresholds: true
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "5"
+              w: 3
+              x: 9
+              "y": 6
+            channels:
+              - rpm
+            rules:
+              - rpm
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 200
+                    min: 0
+                    auto: false
+                  type: TEMPERATURE
+                  unit: DEG_FAHRENHEIT
+                - axis:
+                    max: 4000
+                    min: 0
+                    auto: false
+                  type: ANGULAR_VEL
+                  unit: ROTATIONS_PER_MIN
+              title: Temperature / Speed
+              liveMode:
+                unit: m
+                value: 60
+                maxDatapoints: 1000
+              baselines: []
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: null
+                value: null
+                enabled: null
+                liveMode: true
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 4
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: false
+                - unit: d
+                  value: 5
+                  enabled: false
+                - unit: d
+                  value: 30
+                  enabled: false
+              showDataGaps: true
+              showGridLines: true
+              dataGapMultiplier: null
+            position:
+              h: 9
+              i: "4"
+              w: 6
+              x: 0
+              "y": 24
+            channels:
+              - temp_p
+              - rpm
+              - temp_bearing
+            rules: []
+          - type: linechart
+            configuration:
+              title: Flow Rate
+              units: GALLONS_PER_MIN
+              yAxis:
+                max: 50
+                min: 0
+                auto: false
+              liveMode:
+                unit: m
+                value: 60
+                maxDatapoints: 1000
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: null
+                value: null
+                enabled: null
+                liveMode: true
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 4
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: false
+              showThresholds: false
+              hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "5"
+              w: 6
+              x: 0
+              "y": 18
+            channels:
+              - flow
+            rules: []
+          - type: linechart
+            configuration:
+              title: Current Draw
+              units: AMPERE
+              yAxis:
+                max: 5
+                min: 0
+                auto: false
+              liveMode:
+                unit: m
+                value: 60
+                maxDatapoints: 1000
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: null
+                value: null
+                enabled: null
+                liveMode: true
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showThresholds: true
+              hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "3"
+              w: 6
+              x: 0
+              "y": 12
+            channels:
+              - current
+            rules: []
+          - type: moongauge
+            configuration:
+              title: Motor Bearing Temperature
+              showTicks: true
+              gaugeSignals:
+                - units: DEG_FAHRENHEIT
+                  limits:
+                    max: 200
+                    min: 0
+                    auto: false
+                  signalId: temp_bearing
+                  showThresholds: true
+                  hideValueDuringTimeout: true
+            position:
+              h: 6
+              i: "1"
+              w: 3
+              x: 9
+              "y": 12
+            channels:
+              - temp_bearing
+            rules:
+              - temp_bearing
+          - type: imageoverlay
+            configuration:
+              title: Realtime Overview
+              iconSize: compact
+              assetPositions: []
+              metricPositions:
+                - h: 0
+                  w: 0
+                  x: 13.101190671913075
+                  "y": 42.33130973072307
+                  name: Current Draw
+                  units: AMPERE
+                  status: null
+                  metric_id: current
+                - h: 0
+                  w: 0
+                  x: 73.5664259017723
+                  "y": 5.727177198862533
+                  name: Discharge Pressure
+                  units: PSI
+                  status: null
+                  metric_id: pressure_d
+                - h: 0
+                  w: 0
+                  x: 72.83572819506705
+                  "y": 71.46521113363248
+                  name: Flow Rate
+                  units: GALLONS_PER_MIN
+                  status: null
+                  metric_id: flow
+                - h: 0
+                  w: 0
+                  x: 33.19537760630737
+                  "y": 9.96030817193484
+                  name: Motor Bearing Temperature
+                  units: DEG_FAHRENHEIT
+                  status: null
+                  metric_id: temp_bearing
+                - h: 0
+                  w: 0
+                  x: 73.38375147509599
+                  "y": 26.394816655627327
+                  name: Pump Temperature
+                  units: DEG_FAHRENHEIT
+                  status: null
+                  metric_id: temp_p
+                - h: 0
+                  w: 0
+                  x: 12.918516245236765
+                  "y": 23.406724204046874
+                  name: Speed
+                  units: ROTATIONS_PER_MIN
+                  status: null
+                  metric_id: rpm
+                - h: 0
+                  w: 0
+                  x: 72.65305376839072
+                  "y": 55.27971035423837
+                  name: Suction Pressure
+                  units: PSI
+                  status: null
+                  metric_id: pressure_s
+                - h: 0
+                  w: 0
+                  x: 12.918516245236765
+                  "y": 62.00291837029438
+                  name: Vibration RMS Peak
+                  units: INCH_PER_SEC
+                  status: null
+                  metric_id: vib_rms
+            position:
+              h: 12
+              i: "1"
+              w: 6
+              x: 0
+              "y": 0
+            url: pump.png
+            channels:
+              - rpm
+              - pressure_d
+              - current
+              - flow
+              - temp_bearing
+              - temp_p
+              - pressure_s
+              - vib_rms
+            rules:
+              - vib_rms
+              - rpm
+              - temp_p
+              - temp_bearing
+              - current
+          - type: log
+            configuration:
+              title: Event Log
+            position:
+              h: 15
+              i: "0"
+              w: 6
+              x: 6
+              "y": 18
+            channels: []
+            rules: []
+      - name: Historical
+        order: 0
+        panels:
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 1
+                    min: 0
+                    auto: false
+                  type: VELOCITY
+                  unit: INCH_PER_SEC
+              title: Vibration Historical
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              baselines:
+                - enabled: true
+                  signalId: vib_rms
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: d
+                value: 1
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+            position:
+              h: 12
+              i: "2"
+              w: 12
+              x: 0
+              "y": 25
+            channels:
+              - vib_rms
+            rules:
+              - vib_rms
+          - type: linechart
+            configuration:
+              title: Current Draw
+              units: AMPERE
+              yAxis:
+                max: 6
+                min: 0
+                auto: false
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              showUnits: true
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 12
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showThresholds: true
+              hideValueDuringTimeout: null
+            position:
+              h: 7
+              i: "1"
+              w: 12
+              x: 0
+              "y": 37
+            channels:
+              - current
+            rules: []
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 6
+                    min: 0
+                    auto: false
+                  type: ELEC_CURRENT
+                  unit: AMPERE
+              title: Current Usage
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              baselines:
+                - enabled: true
+                  signalId: current
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 12
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+            position:
+              h: 11
+              i: "3"
+              w: 12
+              x: 0
+              "y": 13
+            channels:
+              - current
+            rules:
+              - current
+          - type: complexlinechart
+            configuration:
+              axes:
+                - axis:
+                    max: 200
+                    min: 0
+                    auto: false
+                  type: TEMPERATURE
+                  unit: DEG_FAHRENHEIT
+              title: Temperature Monitoring Historical
+              liveMode:
+                unit: m
+                value: 30
+                maxDatapoints: 500
+              baselines: []
+              showLegend: false
+              thresholds:
+                warningMax: 0
+                warningMin: 0
+                criticalMax: 0
+                criticalMin: 0
+              defaultTime:
+                unit: h
+                value: 12
+                enabled: null
+                liveMode: false
+              timeOptions:
+                - unit: h
+                  value: 1
+                  enabled: true
+                - unit: h
+                  value: 12
+                  enabled: true
+                - unit: d
+                  value: 1
+                  enabled: true
+                - unit: d
+                  value: 5
+                  enabled: true
+                - unit: d
+                  value: 30
+                  enabled: true
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+            position:
+              h: 12
+              i: "0"
+              w: 12
+              x: 0
+              "y": 0
+            channels:
+              - temp_p
+              - temp_bearing
+            rules:
+              - temp_bearing
+
+profiles:
+  pump:
+    type: "csv"
+    channels:
+      - display_name: "Current Draw"
+        id: "current"
+        properties:
+          data_type: "ELEC_CURRENT"
+          data_unit: "AMPERE"
+          description: "Electrical current measured"
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Flow Rate"
+        id: "flow"
+        properties:
+          data_type: "FLOW"
+          data_unit: "GALLONS_PER_MIN"
+          description: ""
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Suction Pressure"
+        id: "pressure_s"
+        properties:
+          data_type: "PRESSURE"
+          data_unit: "PSI"
+          description: "Inlet pressue"
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Discharge Pressure"
+        id: "pressure_d"
+        properties:
+          data_type: "PRESSURE"
+          data_unit: "PSI"
+          description: "Outlet pressure"
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Speed"
+        id: "rpm"
+        properties:
+          data_type: "ANGULAR_VEL"
+          data_unit: "ROTATIONS_PER_MIN"
+          description: ""
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Pump Temperature"
+        id: "temp_p"
+        properties:
+          data_type: "TEMPERATURE"
+          data_unit: "DEG_FAHRENHEIT"
+          description: "Pump temperature"
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Motor Bearing Temperature"
+        id: "temp_bearing"
+        properties:
+          data_type: "TEMPERATURE"
+          data_unit: "DEG_FAHRENHEIT"
+          description: "Motor bearing tempearture"
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+      - display_name: "Vibration RMS Peak"
+        id: "vib_rms"
+        properties:
+          data_type: "VELOCITY"
+          data_unit: "INCH_PER_SEC"
+          description: "vibration RMS velocity, max value over reporting time, all axis."
+          precision: 2
+          locked: true
+        protocol_config:
+          timeout: 60000
+          report_rate: 10000
+    file:
+      name: "Exosense Pump Simulation (Imperial).csv"
+      size: 6082
+      lastModified: 1556637275268
+
+    rules:
+      - name: Bearing Temperature Rule
+        thresholds:
+          - enabled: true
+            threshold: 150
+            alarm: upperCritical
+          - enabled: true
+            threshold: 110
+            alarm: upperWarning
+        subscribe: temp_bearing
+      - name: Pump Temperature Rule
+        thresholds:
+          - enabled: true
+            threshold: 150
+            alarm: upperCritical
+          - enabled: true
+            threshold: 110
+            alarm: upperWarning
+        subscribe: temp_p
+      - name: Current Draw Rule
+        thresholds:
+          - enabled: true
+            threshold: 4
+            alarm: upperCritical
+          - enabled: true
+            threshold: 2.5
+            alarm: upperWarning
+        subscribe: current
+      - name: Vibration Rule
+        thresholds:
+          - enabled: true
+            threshold: 0.1
+            alarm: upperCritical
+          - enabled: true
+            threshold: 0.08
+            alarm: upperWarning
+        subscribe: vib_rms
+      - name: Speed Rule
+        thresholds:
+          - enabled: true
+            threshold: 3000
+            alarm: upperCritical
+          - enabled: true
+            threshold: 2700
+            alarm: upperWarning
+        subscribe: rpm
+
+    data:
+      current:
+        - "0.02"
+        - "0.04"
+        - "0.01"
+        - "0"
+        - "0"
+        - "0.01"
+        - "2.54"
+        - "2.54"
+        - "2.54"
+        - "2.52"
+        - "2.52"
+        - "2.51"
+        - "2.51"
+        - "2.49"
+        - "2.5"
+        - "2.48"
+        - "2.47"
+        - "2.48"
+        - "2.5"
+        - "2.49"
+        - "2.48"
+        - "2.47"
+        - "2.45"
+        - "2.49"
+        - "2.49"
+        - "2.49"
+        - "2.49"
+        - "2.51"
+        - "2.52"
+        - "2.53"
+        - "2.49"
+        - "2.48"
+        - "2.51"
+        - "2.52"
+        - "2.54"
+        - "2.51"
+        - "2.49"
+        - "2.45"
+        - "2.44"
+        - "2.45"
+        - "2.44"
+        - "2.46"
+        - "2.47"
+        - "2.5"
+        - "2.5"
+        - "2.51"
+        - "2.31"
+        - "2.21"
+        - "2.2"
+        - "2.22"
+        - "2.22"
+        - "2.22"
+        - "2.2"
+        - "2.18"
+        - "2.18"
+        - "2.21"
+        - "2.21"
+        - "2.18"
+        - "2.2"
+        - "2.19"
+        - "2.23"
+        - "2.24"
+        - "2.21"
+        - "2.23"
+        - "2.22"
+        - "2.22"
+        - "2.2"
+        - "2.21"
+        - "2.2"
+        - "2.21"
+        - "2.18"
+        - "2.2"
+        - "2.2"
+        - "2.18"
+        - "2.17"
+        - "2.2"
+        - "2.22"
+        - "2.22"
+        - "2.22"
+        - "2.22"
+        - "2.18"
+        - "2.18"
+        - "2.18"
+        - "2.19"
+        - "0.02"
+        - "0.04"
+        - "0.01"
+        - "0"
+        - "0"
+        - "0.01"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+      flow:
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "7.97"
+        - "8.47"
+        - "8.97"
+        - "9.97"
+        - "10.47"
+        - "10.97"
+        - "11.97"
+        - "12.47"
+        - "13.47"
+        - "13.97"
+        - "14.97"
+        - "15.97"
+        - "16.97"
+        - "17.97"
+        - "18.97"
+        - "19.97"
+        - "20.97"
+        - "21.47"
+        - "21.97"
+        - "22.47"
+        - "22.97"
+        - "23.47"
+        - "24.47"
+        - "25.47"
+        - "25.97"
+        - "26.47"
+        - "26.97"
+        - "27.97"
+        - "28.97"
+        - "29.97"
+        - "30.47"
+        - "31.47"
+        - "31.97"
+        - "32.97"
+        - "33.47"
+        - "33.97"
+        - "34.97"
+        - "35.97"
+        - "36.97"
+        - "37.97"
+        - "37.77"
+        - "37.67"
+        - "37.67"
+        - "37.67"
+        - "37.7"
+        - "37.71"
+        - "37.73"
+        - "37.74"
+        - "37.74"
+        - "37.74"
+        - "37.75"
+        - "37.76"
+        - "37.73"
+        - "37.76"
+        - "37.76"
+        - "37.74"
+        - "37.75"
+        - "37.77"
+        - "37.76"
+        - "37.76"
+        - "37.77"
+        - "37.78"
+        - "37.78"
+        - "37.81"
+        - "37.79"
+        - "37.81"
+        - "37.79"
+        - "37.81"
+        - "37.81"
+        - "37.82"
+        - "37.83"
+        - "37.87"
+        - "37.86"
+        - "37.87"
+        - "37.85"
+        - "37.84"
+        - "37.83"
+        - "37.83"
+        - "36.68"
+        - "35.53"
+        - "33.23"
+        - "32.08"
+        - "29.78"
+        - "28.63"
+        - "27.48"
+        - "26.33"
+        - "25.18"
+        - "22.88"
+        - "21.73"
+        - "20.58"
+        - "19.43"
+        - "17.13"
+        - "14.83"
+        - "13.68"
+        - "12.53"
+        - "11.38"
+        - "9.08"
+        - "7.93"
+        - "5.63"
+        - "3.33"
+        - "1.03"
+        - "1.27"
+        - "0.12"
+        - "2.18"
+        - "1.03"
+        - "1.27"
+      pressure_s:
+        - "16.3"
+        - "16.29"
+        - "16.32"
+        - "16.34"
+        - "16.33"
+        - "16.34"
+        - "16.35"
+        - "16.33"
+        - "16.33"
+        - "16.35"
+        - "16.35"
+        - "16.36"
+        - "16.38"
+        - "16.39"
+        - "16.38"
+        - "16.38"
+        - "16.37"
+        - "16.36"
+        - "16.39"
+        - "16.39"
+        - "16.38"
+        - "16.38"
+        - "16.41"
+        - "16.39"
+        - "16.4"
+        - "16.42"
+        - "16.42"
+        - "16.4"
+        - "16.42"
+        - "16.44"
+        - "16.43"
+        - "16.43"
+        - "16.42"
+        - "16.42"
+        - "16.44"
+        - "16.4"
+        - "16.37"
+        - "16.38"
+        - "16.38"
+        - "16.37"
+        - "16.37"
+        - "16.36"
+        - "16.36"
+        - "16.34"
+        - "16.36"
+        - "16.35"
+        - "16.35"
+        - "16.33"
+        - "16.34"
+        - "16.3"
+        - "16.3"
+        - "16.26"
+        - "16.28"
+        - "16.3"
+        - "16.3"
+        - "16.31"
+        - "16.31"
+        - "16.31"
+        - "16.33"
+        - "16.33"
+        - "16.34"
+        - "16.36"
+        - "16.35"
+        - "16.32"
+        - "16.29"
+        - "16.29"
+        - "16.28"
+        - "16.28"
+        - "16.29"
+        - "16.29"
+        - "16.3"
+        - "16.29"
+        - "16.33"
+        - "16.33"
+        - "16.33"
+        - "16.33"
+        - "16.32"
+        - "16.32"
+        - "16.29"
+        - "16.31"
+        - "16.3"
+        - "16.32"
+        - "16.34"
+        - "16.33"
+        - "16.35"
+        - "16.35"
+        - "16.36"
+        - "16.34"
+        - "16.36"
+        - "16.34"
+        - "16.34"
+        - "16.37"
+        - "16.34"
+        - "16.34"
+        - "16.35"
+        - "16.34"
+        - "16.34"
+        - "16.34"
+        - "16.35"
+        - "16.33"
+        - "16.33"
+        - "16.32"
+        - "16.33"
+        - "16.33"
+        - "16.31"
+        - "16.29"
+        - "16.29"
+        - "16.3"
+        - "16.28"
+        - "16.3"
+        - "16.28"
+        - "16.31"
+      pressure_d:
+        - "16.3"
+        - "16.29"
+        - "16.32"
+        - "16.34"
+        - "16.33"
+        - "16.34"
+        - "17.34"
+        - "18.34"
+        - "19.34"
+        - "19.84"
+        - "20.84"
+        - "21.34"
+        - "22.34"
+        - "22.84"
+        - "23.34"
+        - "24.34"
+        - "25.34"
+        - "25.35"
+        - "25.35"
+        - "25.35"
+        - "25.32"
+        - "25.3"
+        - "25.29"
+        - "25.33"
+        - "25.3"
+        - "25.33"
+        - "25.31"
+        - "25.31"
+        - "25.32"
+        - "25.32"
+        - "25.31"
+        - "25.31"
+        - "25.28"
+        - "25.27"
+        - "25.25"
+        - "25.23"
+        - "25.22"
+        - "25.22"
+        - "25.22"
+        - "25.2"
+        - "25.21"
+        - "25.21"
+        - "25.22"
+        - "25.23"
+        - "25.25"
+        - "25.26"
+        - "25.23"
+        - "25.25"
+        - "25.22"
+        - "25.21"
+        - "25.24"
+        - "25.26"
+        - "25.25"
+        - "25.23"
+        - "25.23"
+        - "25.21"
+        - "25.24"
+        - "25.22"
+        - "25.21"
+        - "25.23"
+        - "25.25"
+        - "25.24"
+        - "25.22"
+        - "25.22"
+        - "25.23"
+        - "25.24"
+        - "25.22"
+        - "25.23"
+        - "25.26"
+        - "25.28"
+        - "25.28"
+        - "25.28"
+        - "25.27"
+        - "25.24"
+        - "25.21"
+        - "25.22"
+        - "25.21"
+        - "25.23"
+        - "25.25"
+        - "25.23"
+        - "25.23"
+        - "25.23"
+        - "25.24"
+        - "25.25"
+        - "25.28"
+        - "24.13"
+        - "22.98"
+        - "21.83"
+        - "16.36"
+        - "16.34"
+        - "16.34"
+        - "16.37"
+        - "16.34"
+        - "16.34"
+        - "16.35"
+        - "16.34"
+        - "16.34"
+        - "16.34"
+        - "16.35"
+        - "16.33"
+        - "16.33"
+        - "16.32"
+        - "16.33"
+        - "16.33"
+        - "16.31"
+        - "16.29"
+        - "16.29"
+        - "16.3"
+        - "16.28"
+        - "16.3"
+        - "16.28"
+        - "16.31"
+      rpm:
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "942.23"
+        - "1630.2"
+        - "2001.06"
+        - "2001.06"
+        - "2001.06"
+        - "2001.06"
+        - "2001.05"
+        - "2001.09"
+        - "2001.09"
+        - "2001.09"
+        - "2001.1"
+        - "2001.12"
+        - "2001.12"
+        - "2001.1"
+        - "2001.09"
+        - "2001.09"
+        - "2001.13"
+        - "2001.09"
+        - "2001.07"
+        - "2001.07"
+        - "2001.08"
+        - "2001.08"
+        - "2001.06"
+        - "2001.04"
+        - "2001.04"
+        - "2001.05"
+        - "2001.04"
+        - "2001.04"
+        - "2001.05"
+        - "2001.06"
+        - "2001.06"
+        - "2001.03"
+        - "2001.02"
+        - "2000.99"
+        - "2001.01"
+        - "2000.99"
+        - "2001"
+        - "2001"
+        - "2000.97"
+        - "2000.96"
+        - "1900.91"
+        - "1900.91"
+        - "1900.91"
+        - "1900.9"
+        - "1900.9"
+        - "1900.92"
+        - "1900.89"
+        - "1900.9"
+        - "1900.93"
+        - "1900.9"
+        - "1900.92"
+        - "1900.93"
+        - "1900.92"
+        - "1900.91"
+        - "1900.89"
+        - "1900.87"
+        - "1900.86"
+        - "1900.86"
+        - "1900.86"
+        - "1900.84"
+        - "1900.84"
+        - "1900.86"
+        - "1900.86"
+        - "1900.83"
+        - "1900.83"
+        - "1900.81"
+        - "1900.82"
+        - "1900.8"
+        - "1900.77"
+        - "1900.77"
+        - "1900.75"
+        - "1900.75"
+        - "1900.76"
+        - "1900.77"
+        - "1900.81"
+        - "1900.78"
+        - "1900.79"
+        - "1900.78"
+        - "950.39"
+        - "475.2"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+      temp_p:
+        - "64.02"
+        - "64.03"
+        - "63.99"
+        - "64.02"
+        - "64.04"
+        - "64.01"
+        - "64.04"
+        - "64"
+        - "64.02"
+        - "67.2"
+        - "70.56"
+        - "74.09"
+        - "77.79"
+        - "81.68"
+        - "85.76"
+        - "95.05"
+        - "95.05"
+        - "95.05"
+        - "95.08"
+        - "90.32"
+        - "90.32"
+        - "90.28"
+        - "90.28"
+        - "90.28"
+        - "90.28"
+        - "90.27"
+        - "90.28"
+        - "90.28"
+        - "90.26"
+        - "90.25"
+        - "90.28"
+        - "90.31"
+        - "90.27"
+        - "90.28"
+        - "90.28"
+        - "90.29"
+        - "90.3"
+        - "90.3"
+        - "90.28"
+        - "90.28"
+        - "90.28"
+        - "90.27"
+        - "90.24"
+        - "90.23"
+        - "90.22"
+        - "90.21"
+        - "90.21"
+        - "90.2"
+        - "90.19"
+        - "90.16"
+        - "90.13"
+        - "90.13"
+        - "90.12"
+        - "90.13"
+        - "90.12"
+        - "90.13"
+        - "90.14"
+        - "90.15"
+        - "90.12"
+        - "90.13"
+        - "90.13"
+        - "90.13"
+        - "90.14"
+        - "90.16"
+        - "90.15"
+        - "90.15"
+        - "90.14"
+        - "90.13"
+        - "90.13"
+        - "90.15"
+        - "90.13"
+        - "90.15"
+        - "90.14"
+        - "90.15"
+        - "90.18"
+        - "90.18"
+        - "90.18"
+        - "90.21"
+        - "90.21"
+        - "90.19"
+        - "90.19"
+        - "90.19"
+        - "90.18"
+        - "90.16"
+        - "90.16"
+        - "94.66"
+        - "99.4"
+        - "95.42"
+        - "91.6"
+        - "87.94"
+        - "84.42"
+        - "81.05"
+        - "77.8"
+        - "74.69"
+        - "71.7"
+        - "68.84"
+        - "66.08"
+        - "63.44"
+        - "63.44"
+        - "63.45"
+        - "63.47"
+        - "63.47"
+        - "63.47"
+        - "63.45"
+        - "63.46"
+        - "63.5"
+        - "63.5"
+        - "63.48"
+        - "63.47"
+        - "63.46"
+        - "63.47"
+        - "63.44"
+      temp_bearing:
+        - "65.03"
+        - "65.03"
+        - "65.07"
+        - "65.06"
+        - "65.07"
+        - "65.1"
+        - "65.06"
+        - "65.11"
+        - "65.1"
+        - "68.37"
+        - "71.79"
+        - "75.38"
+        - "79.15"
+        - "83.1"
+        - "87.26"
+        - "96.62"
+        - "96.63"
+        - "96.62"
+        - "96.65"
+        - "91.82"
+        - "91.84"
+        - "91.84"
+        - "91.85"
+        - "91.83"
+        - "91.8"
+        - "91.79"
+        - "91.76"
+        - "91.76"
+        - "91.77"
+        - "91.74"
+        - "91.76"
+        - "91.73"
+        - "91.74"
+        - "91.74"
+        - "91.72"
+        - "91.75"
+        - "91.74"
+        - "91.75"
+        - "91.74"
+        - "91.74"
+        - "91.7"
+        - "91.72"
+        - "91.75"
+        - "91.76"
+        - "91.79"
+        - "91.78"
+        - "91.78"
+        - "91.75"
+        - "91.79"
+        - "91.77"
+        - "91.8"
+        - "91.83"
+        - "91.85"
+        - "91.85"
+        - "91.84"
+        - "91.84"
+        - "91.87"
+        - "91.87"
+        - "91.84"
+        - "91.83"
+        - "91.83"
+        - "91.86"
+        - "91.87"
+        - "91.84"
+        - "91.82"
+        - "91.82"
+        - "91.8"
+        - "91.8"
+        - "91.8"
+        - "91.78"
+        - "91.79"
+        - "91.82"
+        - "91.83"
+        - "91.84"
+        - "91.82"
+        - "91.83"
+        - "91.83"
+        - "91.82"
+        - "91.81"
+        - "91.82"
+        - "91.8"
+        - "91.8"
+        - "91.83"
+        - "91.84"
+        - "91.85"
+        - "96.44"
+        - "101.26"
+        - "97.21"
+        - "93.32"
+        - "89.59"
+        - "86.01"
+        - "82.57"
+        - "79.26"
+        - "76.09"
+        - "73.05"
+        - "70.13"
+        - "67.32"
+        - "64.63"
+        - "64.66"
+        - "64.67"
+        - "64.68"
+        - "64.67"
+        - "64.69"
+        - "64.69"
+        - "64.69"
+        - "64.69"
+        - "64.72"
+        - "64.72"
+        - "64.73"
+        - "64.71"
+        - "64.73"
+        - "64.72"
+      vib_rms:
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0.001"
+        - "0.0037"
+        - "0.0013"
+        - "0.0083"
+        - "0.0011"
+        - "0.0088"
+        - "0.0025"
+        - "0.0091"
+        - "0.0091"
+        - "0.0213"
+        - "0.0342"
+        - "0.0431"
+        - "0.0389"
+        - "0.0379"
+        - "0.0456"
+        - "0.0431"
+        - "0.0412"
+        - "0.0315"
+        - "0.0329"
+        - "0.0416"
+        - "0.0416"
+        - "0.0431"
+        - "0.0456"
+        - "0.0467"
+        - "0.0347"
+        - "0.0295"
+        - "0.0208"
+        - "0.0275"
+        - "0.0306"
+        - "0.0336"
+        - "0.0403"
+        - "0.0353"
+        - "0.0286"
+        - "0.0226"
+        - "0.0167"
+        - "0.016"
+        - "0.0257"
+        - "0.0392"
+        - "0.0383"
+        - "0.0339"
+        - "0.0337"
+        - "0.0322"
+        - "0.0315"
+        - "0.0307"
+        - "0.0289"
+        - "0.0241"
+        - "0.0285"
+        - "0.0317"
+        - "0.0346"
+        - "0.0366"
+        - "0.0378"
+        - "0.042"
+        - "0.0387"
+        - "0.0371"
+        - "0.0341"
+        - "0.0336"
+        - "0.0364"
+        - "0.0387"
+        - "0.0385"
+        - "0.0403"
+        - "0.042"
+        - "0.0449"
+        - "0.0446"
+        - "0.0435"
+        - "0.0454"
+        - "0.0465"
+        - "0.0463"
+        - "0.0442"
+        - "0.0396"
+        - "0.0414"
+        - "0.0448"
+        - "0.0421"
+        - "0.0449"
+        - "0.0453"
+        - "0.0459"
+        - "0.046"
+        - "0.0417"
+        - "0.0374"
+        - "0.0391"
+        - "0.0374"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+        - "0"
+
