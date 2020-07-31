@@ -127,6 +127,21 @@ containers:
             configuration:
               title: Pump Current Draw
               units: AMPERE
+              axes:
+                - axis:
+                    max: 25
+                    min: 0
+                    auto: false
+                  type: ELEC_CURRENT
+                  unit: AMPERE
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+              baselines: []
+              showLegend: false
+              showMinMax: false
+              showTimelineNavigator: false
+              highlightedSignalId: pump_amps
               yAxis:
                 max: 25
                 min: 0

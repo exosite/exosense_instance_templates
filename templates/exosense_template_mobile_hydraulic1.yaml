@@ -167,6 +167,21 @@ containers:
             configuration:
               title: Hydraulic Fluid Temperature
               units: DEG_FAHRENHEIT
+              axes:
+                - axis:
+                    max: 140
+                    min: 0
+                    auto: false
+                  type: TEMPERATURE
+                  unit: DEG_FAHRENHEIT
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+              baselines: []
+              showLegend: false
+              showMinMax: false
+              showTimelineNavigator: false
+              highlightedSignalId: hyd_temp
               yAxis:
                 max: 140
                 min: 0
