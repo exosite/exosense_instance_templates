@@ -287,6 +287,21 @@ containers:
             configuration:
               title: Flow Rate
               units: GALLONS_PER_MIN
+              axes:
+                - axis:
+                    max: 50
+                    min: 0
+                    auto: false
+                  type: FLOW
+                  unit: GALLONS_PER_MIN
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+              baselines: []
+              showLegend: false
+              showMinMax: false
+              showTimelineNavigator: false
+              highlightedSignalId: flow
               yAxis:
                 max: 50
                 min: 0
@@ -337,6 +352,21 @@ containers:
             configuration:
               title: Current Draw
               units: AMPERE
+              axes:
+                - axis:
+                    max: 5
+                    min: 0
+                    auto: false
+                  type: ELEC_CURRENT
+                  unit: AMPERE
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+              baselines: []
+              showLegend: false
+              showMinMax: false
+              showTimelineNavigator: false
+              highlightedSignalId: current
               yAxis:
                 max: 5
                 min: 0
@@ -573,6 +603,21 @@ containers:
             configuration:
               title: Current Draw
               units: AMPERE
+              axes:
+                - axis:
+                    max: 6
+                    min: 0
+                    auto: false
+                  type: ELEC_CURRENT
+                  unit: AMPERE
+              showDataGaps: true
+              showGridLines: false
+              dataGapMultiplier: null
+              baselines: []
+              showLegend: false
+              showMinMax: false
+              showTimelineNavigator: false
+              highlightedSignalId: current
               yAxis:
                 max: 6
                 min: 0
