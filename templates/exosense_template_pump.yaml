@@ -512,7 +512,7 @@ containers:
               w: 6
               x: 0
               "y": 0
-            url: pump.png
+            url: https://raw.githubusercontent.com/exosite/exosense_instance_templates/master/img/pump.png
             channels:
               - rpm
               - pressure_d
