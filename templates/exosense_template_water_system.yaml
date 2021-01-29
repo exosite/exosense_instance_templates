@@ -112,6 +112,33 @@ containers:
               showDataGaps: true
               showGridLines: true
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
             position:
               h: 12
               i: '0'
@@ -178,6 +205,33 @@ containers:
                   value: 30
                   enabled: true
               showThresholds: true
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
             position:
               h: 6
               i: '0'
@@ -194,6 +248,28 @@ containers:
                 majorInterval: 1
                 minorInterval: 1
               title: Differential Pressure 10u
+              displayAllThresholds: true
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: filter_dp_10u
+                  display: true
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_10u
+                  display: true
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_10u
+                  display: true
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_10u
+                  display: true
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
               gaugeSignals:
                 - units: PSI
                   limits:
@@ -221,6 +297,28 @@ containers:
                 minorIntervalCustom: null
               title: Differential Pressure 5u
               showTicks: null
+              displayAllThresholds: true
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  display: true
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  display: true
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  display: true
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: filter_dp_5u
+                  display: true
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
               gaugeSignals:
                 - units: PSI
                   limits:
@@ -249,6 +347,28 @@ containers:
                 minorIntervalCustom: null
               title: Pump Current Draw
               showTicks: null
+              displayAllThresholds: true
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  display: true
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  display: true
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  display: true
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: pump_amps
+                  display: true
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
               gaugeSignals:
                 - units: AMPERE
                   limits:
