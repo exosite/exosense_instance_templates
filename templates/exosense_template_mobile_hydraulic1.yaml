@@ -78,7 +78,7 @@ assets:
     identity: simTruck2
   - name: Truck 3
     identity: simTruck3
-    
+
 containers:
   - profile: hydraulic
     dashboards:
@@ -126,6 +126,28 @@ containers:
                   signalId: fuel_level
                   showThresholds: true
                   hideValueDuringTimeout: false
+              displayAllThresholds: true
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  display: true
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  display: true
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  display: true
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  display: true
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
             position:
               h: 6
               i: '1'
@@ -154,6 +176,8 @@ containers:
                   signalId: maxspeed
                   showThresholds: false
                   hideValueDuringTimeout: true
+              displayAllThresholds: false
+              displayedThresholds: []
             position:
               h: 6
               i: '3'
@@ -218,6 +242,33 @@ containers:
                   value: 30
                   enabled: false
               showThresholds: true
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
               hideValueDuringTimeout: null
             position:
               h: 9
@@ -257,6 +308,8 @@ containers:
                 minorInterval: 1
               title: Hydraulic Fluid Temperature
               showTicks: true
+              displayAllThresholds: false
+              displayedThresholds: []
               gaugeSignals:
                 - units: DEG_FAHRENHEIT
                   limits:
@@ -335,6 +388,9 @@ containers:
               showDataGaps: true
               showGridLines: true
               dataGapMultiplier: null
+              displayAllThresholds: false
+              displayAdditionalErrorInfo: false
+              displayedThresholds: []
             position:
               h: 9
               i: '1'
@@ -389,6 +445,33 @@ containers:
               showDataGaps: true
               showGridLines: true
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: fuel_level
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
             position:
               h: 7
               i: '1'
@@ -444,6 +527,33 @@ containers:
               showDataGaps: true
               showGridLines: true
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
+              displayedThresholds:
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperCritical
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: upperWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerWarning
+                  useDefaultLineLabelText: true
+                - lineLabelText: ""
+                  ruleId: hyd_temp
+                  showHorizontalLines: true
+                  showVerticalBands: false
+                  thresholdItemKey: lowerCritical
+                  useDefaultLineLabelText: true
             position:
               h: 10
               i: '0'
@@ -458,8 +568,8 @@ containers:
 profiles:
   hydraulic:
     type: "csv"
-    data: 
-      location: 
+    data:
+      location:
         - "{\"lat\":43.67423,\"lng\":-96.18115}"
         - "{\"lat\":43.67423,\"lng\":-96.18115}"
         - "{\"lat\":43.67423,\"lng\":-96.18115}"
@@ -577,7 +687,7 @@ profiles:
         - "{\"lat\":43.67425,\"lng\":-96.1916}"
         - "{\"lat\":43.67424,\"lng\":-96.1816}"
         - "{\"lat\":43.67424,\"lng\":-96.1816}"
-      eng_status: 
+      eng_status:
         - "false"
         - "false"
         - "false"
@@ -695,7 +805,7 @@ profiles:
         - "true"
         - "true"
         - "true"
-      fuel_level: 
+      fuel_level:
         - "12.0"
         - "12.0"
         - "12.0"
@@ -813,7 +923,7 @@ profiles:
         - "74.4"
         - "74.2"
         - "74.0"
-      maxspeed: 
+      maxspeed:
         - "0"
         - "0"
         - "0"
@@ -931,7 +1041,7 @@ profiles:
         - "20"
         - "20"
         - "19"
-      hyd_temp: 
+      hyd_temp:
         - "73.20"
         - "72.20"
         - "72.27"
@@ -1049,65 +1159,65 @@ profiles:
         - "50.10"
         - "50.13"
         - "50.62"
-    channels: 
-      - 
+    channels:
+      -
         display_name: "Location"
         id: "location"
-        properties: 
+        properties:
           data_type: "LOCATION"
           data_unit: "LAT_LONG"
           description: "Vehicle Location"
           precision: "0"
           locked: "true"
-        protocol_config: 
+        protocol_config:
           report_rate: "10000"
           timeout: "60000"
-      - 
+      -
         display_name: "Engine On/Off"
         id: "eng_status"
-        properties: 
+        properties:
           data_type: "BOOLEAN"
           data_unit: ""
           description: "Engine on/off status"
           precision: "0"
           locked: "true"
-        protocol_config: 
+        protocol_config:
           report_rate: "10000"
           timeout: "60000"
-      - 
+      -
         display_name: "Fuel Level"
         id: "fuel_level"
-        properties: 
+        properties:
           data_type: "VOLUME"
           data_unit: "GALLON"
           description: "Vehicle Fuel Level"
           precision: "1"
           locked: "true"
-        protocol_config: 
+        protocol_config:
           report_rate: "10000.0"
           timeout: "60000.0"
-      - 
+      -
         display_name: "Max Speed"
         id: "maxspeed"
-        properties: 
+        properties:
           data_type: "SPEED"
           data_unit: "MPH"
           description: "Max speed recorded during reporting interval"
           precision: "0"
           locked: "true"
-        protocol_config: 
+        protocol_config:
           report_rate: "10000"
           timeout: "60000"
-      - 
+      -
         display_name: "Hydraulic Fluid Temperature"
         id: "hyd_temp"
-        properties: 
+        properties:
           data_type: "TEMPERATURE"
           data_unit: "DEG_FAHRENHEIT"
           description: ""
           precision: "2"
           locked: "true"
-        protocol_config: 
+        protocol_config:
           report_rate: "10000"
           timeout: "60000"
     rules:
@@ -1129,7 +1239,7 @@ profiles:
             threshold: 15
             alarm: lowerWarning
         subscribe: fuel_level
-    file: 
+    file:
       name: "mikea exosense simulation csv data - mobile_hydraulics1 (2).csv"
       size: 5240
       lastModified: 1570646528520
