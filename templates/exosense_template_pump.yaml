@@ -121,6 +121,7 @@ containers:
                   signalId: current
                   showThresholds: true
                   hideValueDuringTimeout: true
+              displayAllThresholds: true
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: current
@@ -142,7 +143,6 @@ containers:
                   display: true
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-              displayAllThresholds: true
             position:
               h: 6
               i: "9"
@@ -190,6 +190,7 @@ containers:
                   signalId: temp_p
                   showThresholds: true
                   hideValueDuringTimeout: true
+              displayAllThresholds: true
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: temp_p
@@ -211,7 +212,6 @@ containers:
                   display: true
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-              displayAllThresholds: true
             position:
               h: 6
               i: "7"
@@ -259,6 +259,7 @@ containers:
                   signalId: rpm
                   showThresholds: true
                   hideValueDuringTimeout: true
+              displayAllThresholds: true
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: rpm
@@ -280,7 +281,6 @@ containers:
                   display: true
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-              displayAllThresholds: true
             position:
               h: 6
               i: "5"
@@ -503,6 +503,7 @@ containers:
                   signalId: temp_bearing
                   showThresholds: true
                   hideValueDuringTimeout: true
+              displayAllThresholds: true
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: temp_bearing
@@ -524,7 +525,6 @@ containers:
                   display: true
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-              displayAllThresholds: true
             position:
               h: 6
               i: "1"
@@ -688,6 +688,8 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: vib_rms
@@ -713,8 +715,6 @@ containers:
                   showVerticalBands: false
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-                displayAllThresholds: true
-                displayAdditionalErrorInfo: false
             position:
               h: 12
               i: "2"
@@ -840,6 +840,8 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: current
@@ -865,8 +867,6 @@ containers:
                   showVerticalBands: false
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-                displayAllThresholds: true
-                displayAdditionalErrorInfo: false
             position:
               h: 11
               i: "3"
@@ -922,6 +922,8 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
+              displayAllThresholds: true
+              displayAdditionalErrorInfo: false
               displayedThresholds:
                 - lineLabelText: ""
                   ruleId: temp_bearing
@@ -947,8 +949,6 @@ containers:
                   showVerticalBands: false
                   thresholdItemKey: lowerCritical
                   useDefaultLineLabelText: true
-                displayAllThresholds: true
-                displayAdditionalErrorInfo: false
             position:
               h: 12
               i: "0"
