@@ -302,6 +302,10 @@ containers:
                 - 2
                 - 3
                 - 0
+              category_and_level:
+                - 'default_2'
+                - 'default_3'
+                - 'default_0'
             position:
               h: 10
               i: '2'
@@ -380,6 +384,8 @@ containers:
                 corrective actions taken.
               status:
                 - 1
+              category_and_level:
+                - 'default_1'
             position:
               h: 10
               i: '3'
