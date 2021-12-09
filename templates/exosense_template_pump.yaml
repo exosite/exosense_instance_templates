@@ -121,28 +121,8 @@ containers:
                   signalId: current
                   showThresholds: true
                   hideValueDuringTimeout: true
-              displayAllThresholds: true
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: current
-                  display: true
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  display: true
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  display: true
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  display: true
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayAllThresholds: false
+              displayedThresholds: []
             position:
               h: 6
               i: "9"
@@ -151,8 +131,7 @@ containers:
               "y": 0
             channels:
               - current
-            rules:
-              - current
+            rules: []
           - type: moongauge
             configuration:
               title: Flow Rate
@@ -191,27 +170,7 @@ containers:
                   showThresholds: true
                   hideValueDuringTimeout: true
               displayAllThresholds: true
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: temp_p
-                  display: true
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_p
-                  display: true
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_p
-                  display: true
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_p
-                  display: true
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayedThresholds: []
             position:
               h: 6
               i: "7"
@@ -220,8 +179,7 @@ containers:
               "y": 12
             channels:
               - temp_p
-            rules:
-              - temp_p
+            rules: []
           - type: moongauge
             configuration:
               title: Discharge Pressure
@@ -259,28 +217,8 @@ containers:
                   signalId: rpm
                   showThresholds: true
                   hideValueDuringTimeout: true
-              displayAllThresholds: true
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: rpm
-                  display: true
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: rpm
-                  display: true
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: rpm
-                  display: true
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: rpm
-                  display: true
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayAllThresholds: false
+              displayedThresholds: []
             position:
               h: 6
               i: "5"
@@ -289,8 +227,7 @@ containers:
               "y": 6
             channels:
               - rpm
-            rules:
-              - rpm
+            rules: []
           - type: complexlinechart
             configuration:
               axes:
@@ -503,28 +440,8 @@ containers:
                   signalId: temp_bearing
                   showThresholds: true
                   hideValueDuringTimeout: true
-              displayAllThresholds: true
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  display: true
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  display: true
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  display: true
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  display: true
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayAllThresholds: false
+              displayedThresholds: []
             position:
               h: 6
               i: "1"
@@ -533,8 +450,7 @@ containers:
               "y": 12
             channels:
               - temp_bearing
-            rules:
-              - temp_bearing
+            rules: []
           - type: imageoverlay
             configuration:
               title: Realtime Overview
@@ -621,12 +537,7 @@ containers:
               - temp_p
               - pressure_s
               - vib_rms
-            rules:
-              - vib_rms
-              - rpm
-              - temp_p
-              - temp_bearing
-              - current
+            rules: []
           - type: log
             configuration:
               title: Event Log
@@ -688,33 +599,9 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
-              displayAllThresholds: true
+              displayAllThresholds: false
               displayAdditionalErrorInfo: false
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: vib_rms
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: vib_rms
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: vib_rms
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: vib_rms
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayedThresholds: []
             position:
               h: 12
               i: "2"
@@ -723,8 +610,7 @@ containers:
               "y": 25
             channels:
               - vib_rms
-            rules:
-              - vib_rms
+            rules: []
           - type: linechart
             configuration:
               title: Current Draw
@@ -840,33 +726,9 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
-              displayAllThresholds: true
+              displayAllThresholds: false
               displayAdditionalErrorInfo: false
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: current
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: current
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayedThresholds: []
             position:
               h: 11
               i: "3"
@@ -875,8 +737,7 @@ containers:
               "y": 13
             channels:
               - current
-            rules:
-              - current
+            rules: []
           - type: complexlinechart
             configuration:
               axes:
@@ -922,33 +783,9 @@ containers:
               showDataGaps: true
               showGridLines: false
               dataGapMultiplier: null
-              displayAllThresholds: true
+              displayAllThresholds: false
               displayAdditionalErrorInfo: false
-              displayedThresholds:
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperCritical
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: upperWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerWarning
-                  useDefaultLineLabelText: true
-                - lineLabelText: ""
-                  ruleId: temp_bearing
-                  showHorizontalLines: true
-                  showVerticalBands: false
-                  thresholdItemKey: lowerCritical
-                  useDefaultLineLabelText: true
+              displayedThresholds: []
             position:
               h: 12
               i: "0"
@@ -958,8 +795,7 @@ containers:
             channels:
               - temp_p
               - temp_bearing
-            rules:
-              - temp_bearing
+            rules: []
 
 profiles:
   pump:
@@ -1058,52 +894,7 @@ profiles:
       size: 6082
       lastModified: 1556637275268
 
-    rules:
-      - name: Bearing Temperature Rule
-        thresholds:
-          - enabled: true
-            threshold: 150
-            alarm: upperCritical
-          - enabled: true
-            threshold: 110
-            alarm: upperWarning
-        subscribe: temp_bearing
-      - name: Pump Temperature Rule
-        thresholds:
-          - enabled: true
-            threshold: 150
-            alarm: upperCritical
-          - enabled: true
-            threshold: 110
-            alarm: upperWarning
-        subscribe: temp_p
-      - name: Current Draw Rule
-        thresholds:
-          - enabled: true
-            threshold: 4
-            alarm: upperCritical
-          - enabled: true
-            threshold: 2.5
-            alarm: upperWarning
-        subscribe: current
-      - name: Vibration Rule
-        thresholds:
-          - enabled: true
-            threshold: 0.1
-            alarm: upperCritical
-          - enabled: true
-            threshold: 0.08
-            alarm: upperWarning
-        subscribe: vib_rms
-      - name: Speed Rule
-        thresholds:
-          - enabled: true
-            threshold: 3000
-            alarm: upperCritical
-          - enabled: true
-            threshold: 2700
-            alarm: upperWarning
-        subscribe: rpm
+    rules: []
 
     data:
       current:
