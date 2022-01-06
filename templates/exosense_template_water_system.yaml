@@ -121,7 +121,8 @@ containers:
             channels:
               - filter_dp_10u
               - filter_dp_5u
-            rules: []
+            rules:
+              - filter_dp_5u
           - type: linechart
             configuration:
               title: Pump Current Draw
@@ -185,7 +186,8 @@ containers:
               'y': 0
             channels:
               - pump_amps
-            rules: []
+            rules:
+              - pump_amps
           - type: moongauge
             configuration:
               ticks:
@@ -208,7 +210,8 @@ containers:
               'y': 6
             channels:
               - filter_dp_10u
-            rules: []
+            rules:
+              - filter_dp_10u
           - type: moongauge
             configuration:
               ticks:
@@ -235,7 +238,8 @@ containers:
               'y': 12
             channels:
               - filter_dp_5u
-            rules: []
+            rules:
+              - filter_dp_5u
           - type: moongauge
             configuration:
               ticks:
@@ -262,7 +266,8 @@ containers:
               'y': 0
             channels:
               - pump_amps
-            rules: []
+            rules:
+              - pump_amps
       - name: Real Time Status
         order: 0
         panels:
@@ -510,7 +515,11 @@ containers:
               - level
               - pump_amps
               - pump_rpm
-            rules: []
+            rules:
+              - level
+              - pump_amps
+              - filter_dp_5u
+              - filter_dp_10u
 
 profiles:
   water_system:
@@ -1817,7 +1826,43 @@ profiles:
           timeout: "60000"
           locked: "TRUE"
         locked: "TRUE"
-    rules: []
+    rules:
+      - name: Differential Pressure 10u - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 10
+            alarm: upperCritical
+          - enabled: true
+            threshold: 8
+            alarm: upperWarning
+        subscribe: filter_dp_10u
+      - name: Differential Pressure 5u - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 10
+            alarm: upperCritical
+          - enabled: true
+            threshold: 8
+            alarm: upperWarning
+        subscribe: filter_dp_5u
+      - name: Tank Level - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 55
+            alarm: lowerWarning
+          - enabled: true
+            threshold: 33
+            alarm: lowerCritical
+        subscribe: level
+      - name: Pump Current Draw - Threshold
+        thresholds:
+          - enabled: true
+            threshold: 16
+            alarm: upperCritical
+          - enabled: true
+            threshold: 14
+            alarm: upperWarning
+        subscribe: pump_amps
     file:
       name: "simulated_full_data_set - water (3).csv"
       size: 5969

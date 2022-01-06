@@ -134,7 +134,8 @@ containers:
               'y': 0
             channels:
               - fuel_level
-            rules: []
+            rules:
+              - fuel_level
           - type: moongauge
             configuration:
               ticks:
@@ -226,7 +227,8 @@ containers:
               'y': 6
             channels:
               - hyd_temp
-            rules: []
+            rules:
+              - hyd_temp
           - type: currentvalue
             configuration:
               title: Engine On/Off
@@ -272,7 +274,8 @@ containers:
               'y': 0
             channels:
               - hyd_temp
-            rules: []
+            rules:
+              - hyd_temp
           - type: log
             configuration:
               title: Event Log
@@ -283,6 +286,7 @@ containers:
               x: 7
               'y': 15
             channels: []
+            rules: []
       - name: Historical
         order: 0
         panels:
@@ -393,7 +397,8 @@ containers:
               'y': 19
             channels:
               - fuel_level
-            rules: []
+            rules:
+              - fuel_level
           - type: complexlinechart
             configuration:
               axes:
@@ -447,7 +452,8 @@ containers:
               'y': 9
             channels:
               - hyd_temp
-            rules: []
+            rules:
+              - hyd_temp
 
 profiles:
   hydraulic:
@@ -1104,7 +1110,25 @@ profiles:
         protocol_config: 
           report_rate: "10000"
           timeout: "60000"
-    rules: []
+    rules:
+      - name: Hydraulic Fluid Temperature Threshold
+        thresholds:
+          - enabled: true
+            threshold: 130
+            alarm: upperCritical
+          - enabled: true
+            threshold: 110
+            alarm: upperWarning
+        subscribe: hyd_temp
+      - name: Fuel Level Rule
+        thresholds:
+          - enabled: true
+            threshold: 5
+            alarm: lowerCritical
+          - enabled: true
+            threshold: 15
+            alarm: lowerWarning
+        subscribe: fuel_level
     file: 
       name: "mikea exosense simulation csv data - mobile_hydraulics1 (2).csv"
       size: 5240
